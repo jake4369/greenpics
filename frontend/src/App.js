@@ -1,6 +1,6 @@
-import Hero from "./components/HomeScreen/Hero";
-import Footer from "./components/Layout/Footer";
-import Header from "./components/Layout/Header";
+import Hero from "./Components/HomeScreen/Hero";
+import Footer from "./Components/Layout/Footer";
+import Header from "./Components/Layout/Header";
 
 const App = () => {
   return (
