@@ -1,13 +1,34 @@
-body {
+/* ===== SRC/LAYOUT ===== */
+@import "./components/Layout/styles.css";
+
+/* ===== SRC/SCREENS =====  */
+@import "./components/screens/HomeScreen/styles.css";
+@import "./components/screens/ProfileScreen/styles.css";
+@import "./components/screens/AuthScreen/styles.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+#root {
+  min-height: 100vh;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+img {
+  display: block;
+  max-width: 100%;
 }
