@@ -10,6 +10,12 @@ export const locationsApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: 5,
       providesTags: ["Locations"],
     }),
+    getLocation: builder.query({
+      query: (locationId) => ({
+        url: `${LOCATIONS_URL}/${locationId}`,
+      }),
+      keepUnusedDataFor: 5,
+    }),
   }),
 });
 
