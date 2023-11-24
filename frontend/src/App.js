@@ -1,11 +1,11 @@
-import Hero from "./components/Hero.jsx";
+import Hero from "./../src/components/HomeScreen/Hero";
 
 const App = () => {
   return (
-  <div>
-    <Hero />
-  </div>
-  )
+    <div>
+      <Hero />
+    </div>
+  );
 };
 
 export default App;
