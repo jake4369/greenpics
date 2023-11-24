@@ -19,4 +19,4 @@ export const locationsApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useGetLocationsQuery } = locationsApiSlice;
+export const { useGetLocationsQuery, useGetLocationQuery } = locationsApiSlice;
