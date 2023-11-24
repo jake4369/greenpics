@@ -3,6 +3,7 @@
 
 /* ===== SRC/SCREENS =====  */
 @import "./Screens/HomeScreen/styles.css";
+@import "./Screens/LocationScreen/styles.css";
 @import "./Screens/ProfileScreen/styles.css";
 @import "./Screens/AuthScreens/styles.css";
 
