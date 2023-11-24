@@ -1,9 +1,6 @@
 /* ===== SRC/LAYOUT ===== */
 @import "./Components/Layout/styles.css";
 
-/* ===== SRC/COMPONENTS =====  */
-@import "./Components/HomeScreen/styles.css"; /* HOMESCREEN COMPONENTS*/
-
 /* ===== SRC/SCREENS =====  */
 @import "./Screens/HomeScreen/styles.css";
 @import "./Screens/ProfileScreen/styles.css";
@@ -35,4 +32,90 @@ body {
 img {
   display: block;
   max-width: 100%;
+}
+
+/* ==========
+ SCREENS
+ ========== */
+
+.screen {
+  width: 87.2%;
+  margin: 0 auto;
+}
+
+/* ==========
+ SHARED COMPONENTS
+ ========== */
+
+/* ===== LOCATION CARD ===== */
+.location-card {
+  box-shadow: 0px 25px 40px -15px rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.location-card::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  background: darkgreen;
+  position: absolute;
+  bottom: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+.location-card__img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.location-card__text-content {
+  padding: 1rem;
+}
+
+.location-card__name {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.location-card__county {
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  margin-bottom: 1rem;
+}
+
+/* ==============================
+ MEDIA QUERIES
+ ============================== */
+@media (min-width: 48rem) {
+  /* ==========
+  SCREENS
+  ========== */
+
+  .screen {
+    width: 89.7135416667%;
+    margin: 0 auto;
+  }
+
+  /* ==========
+ SHARED COMPONENTS
+ ========== */
+
+  /* ===== LOCATION CARD ===== */
+  .location-card__text-content {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 90rem) {
+  /* ==========
+  SCREENS
+  ========== */
+
+  .screen {
+    width: 77.0833333333%;
+    margin: 0 auto;
+  }
 }
