@@ -1,4 +1,5 @@
-import Hero from "./Components/HomeScreen/Hero";
+import { Outlet } from "react-router-dom";
+
 import Footer from "./Components/Layout/Footer";
 import Header from "./Components/Layout/Header";
 
@@ -6,7 +7,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <Hero />
+      <Outlet />
       <Footer />
     </div>
   );
