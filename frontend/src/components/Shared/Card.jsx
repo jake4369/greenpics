@@ -7,7 +7,9 @@ const Card = ({ location }) => {
       <div className="location-card__text-content">
         <p className="location-card__name">{location.name}</p>
         <p className="location-card__county">{location.county}</p>
-        <p className="location-card__reviews">{location.numReviews} Reviews</p>
+        <p className="location-card__reviews">
+          {location.reviews.length} Reviews
+        </p>
       </div>
     </div>
   );
