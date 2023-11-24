@@ -1,0 +1,40 @@
+.homescreen .section {
+  margin-bottom: 2rem;
+}
+
+.homescreen h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ==========
+ CARD GRID
+ ========== */
+.homescreen__card-grid {
+  display: grid;
+  margin: 0 auto;
+  gap: 4rem;
+}
+
+/* ====================
+ MEDIA QUERIES
+ ==================== */
+@media (min-width: 48rem) {
+  /* ==========
+ CARD GRID
+ ========== */
+  .homescreen__card-grid {
+    grid-template-columns: repeat(2, 49%);
+    gap: 4rem 2%;
+  }
+}
+
+@media (min-width: 90rem) {
+  /* ==========
+   CARD GRID
+   ========== */
+  .homescreen__card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: auto;
+  }
+}
