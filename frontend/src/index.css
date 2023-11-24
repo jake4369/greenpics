@@ -4,7 +4,7 @@
 /* ===== SRC/SCREENS =====  */
 @import "./components/screens/HomeScreen/styles.css";
 @import "./components/screens/ProfileScreen/styles.css";
-@import "./components/screens/AuthScreen/styles.css";
+@import "./components/screens/AuthScreens/styles.css";
 
 *,
 *::before,
