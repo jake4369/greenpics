@@ -1,12 +1,20 @@
-import locations from "./../../data/locations";
+import { useGetLocationsQuery } from "../../slices/locationsSlice";
 import Card from "../Shared/Card";
 
 const CardGrid = () => {
-  console.log(locations);
-  const cards = locations.map((location) => (
-    <Card key={location._id} location={location} />
-  ));
-  return <section className="homescreen__card-grid">{cards}</section>;
+  const { data: locations, isLoading, isError } = useGetLocationsQuery();
+
+  const cards = !isLoading
+    ? locations.map((location) => (
+        <Card key={location._id} location={location} />
+      ))
+    : [];
+
+  return (
+    <section className="homescreen__card-grid">
+      {isLoading ? <p>Loading...</p> : isError ? <p>Error...</p> : cards}
+    </section>
+  );
 };
 
 export default CardGrid;
