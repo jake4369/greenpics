@@ -12,11 +12,13 @@ import "./index.css";
 import App from "./App";
 
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
+import LocationScreen from "./Screens/LocationScreen/LocationScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<HomeScreen />} />
+      <Route path="/location/:id" element={<LocationScreen />} />
     </Route>
   )
 );
