@@ -3,11 +3,11 @@ import Header from "./components/Layout/Header.jsx";
 
 const App = () => {
   return (
-  <div>
-    <Header />
+    <div>
+      <Header />
     <Hero />
-  </div>
-  )
+    </div>
+  );
 };
 
 export default App;
