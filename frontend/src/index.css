@@ -1,6 +1,9 @@
 /* ===== SRC/LAYOUT ===== */
 @import "./components/Layout/styles.css";
 
+/* ===== SRC/COMPONENTS =====  */
+@import "./components/HomeScreen/styles.css"; /* HOMESCREEN COMPONENTS*/
+
 /* ===== SRC/SCREENS =====  */
 @import "./components/screens/HomeScreen/styles.css";
 @import "./components/screens/ProfileScreen/styles.css";
