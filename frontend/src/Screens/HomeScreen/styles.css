@@ -1,5 +1,5 @@
-.homescreen .section {
-  margin-bottom: 2rem;
+.homescreen section {
+  margin-bottom: 4rem;
 }
 
 .homescreen h2 {
@@ -35,6 +35,5 @@
    ========== */
   .homescreen__card-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: auto;
   }
 }
