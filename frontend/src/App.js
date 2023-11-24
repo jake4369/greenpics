@@ -1,11 +1,11 @@
-import Hero from "./components/HomeScreen/Hero.jsx";
-import Header from "./components/Layout/Header.jsx";
+import Hero from "./Components/HomeScreen/Hero";
+import Header from "./Components/Layout/Header";
 
 const App = () => {
   return (
     <div>
       <Header />
-    <Hero />
+      <Hero />
     </div>
   );
 };
