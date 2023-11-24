@@ -57,7 +57,7 @@ img {
 .location-card::after {
   content: "";
   width: 100%;
-  height: 4px;
+  height: 5px;
   background: darkgreen;
   position: absolute;
   bottom: 0;
@@ -78,6 +78,8 @@ img {
 .location-card__name {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: darkgreen;
+  text-decoration: underline;
 }
 
 .location-card__county {
