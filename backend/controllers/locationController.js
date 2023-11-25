@@ -1,5 +1,6 @@
 import asyncHandler from "../middleware/asyncHandler.js";
-import Location from "./../models/locationModel.js";
+import { Location, Review } from "./../models/locationModel.js";
+import User from "../models/userModel.js";
 
 // @desc    Fetch all locations
 // @route   GET /api/products
