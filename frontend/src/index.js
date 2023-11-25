@@ -16,20 +16,23 @@ import LocationScreen from "./Screens/LocationScreen/LocationScreen";
 import DashboardScreen from "./Screens/DashboardScreen/DashboardScreen";
 import Profile from "./Components/DashboardScreen/Profile";
 import AddLocation from "./Components/DashboardScreen/AddLocation";
-import Login from "./Components/DashboardScreen/Login";
-import Register from "./Components/DashboardScreen/Register";
+import LoginScreen from "./Screens/AuthScreens/LoginScreen";
+import RegisterScreen from "./Screens/AuthScreens/RegisterScreen";
+import PrivateRoute from "./Components/PrivateRoute.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<HomeScreen />} />
       <Route path="/location/:id" element={<LocationScreen />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<LoginScreen />} />
+      <Route path="/register" element={<RegisterScreen />} />
 
-      <Route path="/dashboard" element={<DashboardScreen />}>
-        <Route index={true} path="/dashboard/profile" element={<Profile />} />
-        <Route path="/dashboard/addlocation" element={<AddLocation />} />
+      <Route path="" element={<PrivateRoute />}>
+        <Route path="/dashboard" element={<DashboardScreen />}>
+          <Route index={true} path="/dashboard/profile" element={<Profile />} />
+          <Route path="/dashboard/addlocation" element={<AddLocation />} />
+        </Route>
       </Route>
     </Route>
   )
