@@ -1,5 +1,5 @@
 /* ===== SRC/LAYOUT ===== */
-@import "./components/Layout/styles.css";
+@import "./Components/Layout/styles.css";
 
 /* ===== SRC/SCREENS =====  */
 @import "./Screens/HomeScreen/styles.css";
