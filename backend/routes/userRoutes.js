@@ -7,11 +7,13 @@ import {
   registerUser,
   logoutUser,
   getUserById,
+  updateUserProfile,
 } from "./../controllers/userControllers.js";
 
 router.route("/").post(registerUser);
 router.route("/:id").get(protect, getUserById);
 router.post("/login", authUser);
 router.post("/logout", logoutUser);
+router.route("/profile").put(protect, updateUserProfile);
 
 export default router;
