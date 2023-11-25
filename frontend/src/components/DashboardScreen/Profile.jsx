@@ -1,9 +1,13 @@
+import { useSelector } from "react-redux";
+
 const Profile = () => {
+  const { userInfo } = useSelector((state) => state.auth);
+
   return (
     <div className="profile">
       <h1>My Profile</h1>
       <img src="/images/profile.jpeg" alt="" className="profile__img" />
-      <p className="profile__username">username</p>
+      <p className="profile__username"></p>
 
       <p className="profile__name">Jake Samuels</p>
       <p className="profile__email">jake@email.com</p>
