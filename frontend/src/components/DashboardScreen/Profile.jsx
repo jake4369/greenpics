@@ -23,10 +23,7 @@ const Profile = () => {
 
           <h2>About Me</h2>
           {user.bio !== "" ? (
-            <p className="profile__bio">
-              My name is Jake, and I love to find beautiful and amazing places
-              to explore
-            </p>
+            <p className="profile__bio">{user.bio}</p>
           ) : (
             <p>Edit profile to add your bio</p>
           )}
