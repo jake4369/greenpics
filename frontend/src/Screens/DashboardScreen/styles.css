@@ -28,6 +28,7 @@
  ========== */
 .profile {
   text-align: center;
+  margin-bottom: 4rem;
 }
 
 .profile h1,
@@ -57,6 +58,74 @@
 .profile__email {
   font-size: 14px;
   margin-bottom: 2rem;
+}
+
+/* ========== 
+ ADD LOCATION
+ ========== */
+.addlocation {
+  margin-bottom: 4rem;
+}
+
+.addlocation h1 {
+  margin-bottom: 1rem;
+}
+
+.addlocation form {
+  display: flex;
+  flex-direction: column;
+}
+
+.addlocation form label {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.addlocation form input,
+.addlocation form textarea {
+  padding: 0.6875rem 1rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 1.5rem;
+}
+
+.addlocation form textarea {
+  resize: none;
+  height: 150px;
+}
+
+.addlocation form ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.addlocation form ul li {
+  display: flex;
+  align-items: center;
+}
+
+.addlocation form ul li label {
+  margin-bottom: 0;
+}
+
+.addlocation form input[type="checkbox"] {
+  margin: 0 0 0 1rem;
+}
+
+.addlocation form .submit-btn {
+  display: block;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 0.6875rem 2rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 1px solid gray;
 }
 
 /* ============================== 
@@ -101,10 +170,9 @@
   }
 
   /* ========== 
- PROFILE
- ========== */
+  PROFILE
+  ========== */
   .profile {
-    margin-bottom: 4rem;
     height: 100%;
   }
 
@@ -138,5 +206,18 @@
   .profile__email {
     font-size: 1rem;
     margin-bottom: 2rem;
+  }
+
+  /* ========== 
+  ADD LOCATION
+  ========== */
+
+  .addlocation h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .addlocation form .submit-btn {
+    cursor: pointer;
   }
 }
