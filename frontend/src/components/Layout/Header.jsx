@@ -25,7 +25,8 @@ const Header = () => {
   return (
     <>
       <nav className="navBar-container">
-        <Link to="/" className="nav-link">
+      <div className="link-container">
+      <Link to="/" className="nav-link">
           Home
         </Link>
         <Link to="/dashboard/profile" className="nav-link">
@@ -43,6 +44,8 @@ const Header = () => {
             Login
           </Link>
         )}
+
+      </div>
       </nav>
     </>
   );

@@ -12,7 +12,7 @@ const CardGrid = () => {
 
   return (
     <section className="homescreen__card-grid">
-      {isLoading ? <p>Loading...</p> : isError ? <p>Error...</p> : cards}
+      {isLoading ? <p>Loading...</p> : isError ? <p>{isError?.data?.message || isError?.error}</p> : cards}
     </section>
   );
 };
