@@ -1,5 +1,5 @@
-import Hero from "./../../components/HomeScreen/Hero";
-import CardGrid from "../../components/HomeScreen/CardGrid";
+import Hero from "./../../Components/HomeScreen/Hero";
+import CardGrid from "../../Components/HomeScreen/CardGrid";
 
 const HomeScreen = () => {
   return (
