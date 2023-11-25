@@ -13,12 +13,20 @@ import App from "./App";
 
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
 import LocationScreen from "./Screens/LocationScreen/LocationScreen";
+import DashboardScreen from "./Screens/DashboardScreen/DashboardScreen";
+import Profile from "./Components/DashboardScreen/Profile";
+import AddLocation from "./Components/DashboardScreen/AddLocation";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<HomeScreen />} />
       <Route path="/location/:id" element={<LocationScreen />} />
+
+      <Route path="/dashboard" element={<DashboardScreen />}>
+        <Route index={true} path="/dashboard/profile" element={<Profile />} />
+        <Route path="/dashboard/addlocation" element={<AddLocation />} />
+      </Route>
     </Route>
   )
 );

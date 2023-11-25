@@ -1,0 +1,223 @@
+/* ========== 
+ SIDEBAR
+ ========== */
+.desktop-sidebar {
+  display: none;
+}
+
+.sidebar {
+  background: lightblue;
+  padding: 1rem;
+  border-radius: 0.3125rem;
+  margin-bottom: 2rem;
+}
+
+.mobile-sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-sidebar a {
+  color: #fff;
+  font-size: 2rem;
+}
+
+/* ========== 
+ PROFILE
+ ========== */
+.profile {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.profile h1,
+.profile h2 {
+  margin-bottom: 1rem;
+}
+
+.profile__img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 0.5rem;
+}
+
+.profile__username {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.profile__name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile__email {
+  font-size: 14px;
+  margin-bottom: 2rem;
+}
+
+/* ========== 
+ ADD LOCATION
+ ========== */
+.addlocation {
+  margin-bottom: 4rem;
+}
+
+.addlocation h1 {
+  margin-bottom: 1rem;
+}
+
+.addlocation form {
+  display: flex;
+  flex-direction: column;
+}
+
+.addlocation form label {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.addlocation form input,
+.addlocation form textarea {
+  padding: 0.6875rem 1rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 1.5rem;
+}
+
+.addlocation form textarea {
+  resize: none;
+  height: 150px;
+}
+
+.addlocation form ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.addlocation form ul li {
+  display: flex;
+  align-items: center;
+}
+
+.addlocation form ul li label {
+  margin-bottom: 0;
+}
+
+.addlocation form input[type="checkbox"] {
+  margin: 0 0 0 1rem;
+}
+
+.addlocation form .submit-btn {
+  display: block;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 0.6875rem 2rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+/* ============================== 
+ MEDIA QUERIES
+ ============================== */
+@media (min-width: 48rem) {
+  .dashboardscreen {
+    display: grid;
+    grid-template-columns: 40% 50%;
+  }
+
+  /* ========== 
+ SIDEBAR
+ ========== */
+  .mobile-sidebar {
+    display: none;
+  }
+
+  .desktop-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .sidebar {
+    display: flex;
+    width: fit-content;
+    padding: 2rem;
+    height: 100%;
+  }
+
+  .desktop-sidebar a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+
+  .desktop-sidebar .sidebar-icon {
+    margin-right: 0.5rem;
+  }
+
+  /* ========== 
+  PROFILE
+  ========== */
+  .profile {
+    height: 100%;
+  }
+
+  .profile h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .profile h2 {
+    font-size: 2rem;
+  }
+
+  .profile__img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+  }
+
+  .profile__username {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .profile__name {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .profile__email {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* ========== 
+  ADD LOCATION
+  ========== */
+
+  .addlocation h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .addlocation form .submit-btn {
+    cursor: pointer;
+  }
+}
