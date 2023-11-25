@@ -75,7 +75,7 @@
   margin-bottom: 2rem;
 }
 
-.addlocation form .submit-btn {
+.submit-btn {
   display: block;
   max-width: 50%;
   margin: 0 auto;
@@ -150,6 +150,10 @@
  ========== */
 .edit-profile h1 {
   margin-bottom: 1rem;
+}
+
+.edit-profile form {
+  margin-bottom: 4rem;
 }
 
 /* ============================== 
