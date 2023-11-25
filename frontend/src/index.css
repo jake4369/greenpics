@@ -108,6 +108,53 @@ img {
   border-radius: 4px;
 }
 
+/* ===== FORMS ===== */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+form input,
+form textarea {
+  padding: 0.6875rem 1rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 1.5rem;
+}
+
+form textarea {
+  resize: none;
+  height: 150px;
+}
+
+form ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+form ul li {
+  display: flex;
+  align-items: center;
+}
+
+form ul li label {
+  margin-bottom: 0;
+}
+
+form input[type="checkbox"] {
+  margin: 0 0 0 1rem;
+}
+
 /* ==============================
  MEDIA QUERIES
  ============================== */
@@ -132,6 +179,9 @@ img {
 }
 
 @media (min-width: 90rem) {
+  button {
+    cursor: pointer;
+  }
   /* ==========
   SCREENS
   ========== */
