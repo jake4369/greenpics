@@ -6,9 +6,11 @@ import {
   authUser,
   registerUser,
   logoutUser,
+  getUserById,
 } from "./../controllers/userControllers.js";
 
 router.route("/").post(registerUser);
+router.route("/:id").get(protect, getUserById);
 router.post("/login", authUser);
 router.post("/logout", logoutUser);
 
