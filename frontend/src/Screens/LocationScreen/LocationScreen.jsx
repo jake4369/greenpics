@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 import { FaArrowLeft } from "react-icons/fa";
 
-import LocationDetails from "../../Components/LocationScreen/LocationDetails";
-import PublicInfo from "../../Components/LocationScreen/PublicInfo";
+import LocationDetails from "../../components/LocationScreen/LocationDetails";
+import PublicInfo from "../../components/LocationScreen/PublicInfo";
 
 const LocationScreen = () => {
   const { id: locationId } = useParams();
