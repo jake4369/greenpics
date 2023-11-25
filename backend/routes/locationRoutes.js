@@ -4,10 +4,13 @@ const router = express.Router();
 import {
   getLocations,
   getLocationById,
+  addLocation,
+  getSavedLocations,
+  deleteLocation,
 } from "./../controllers/locationController.js";
 
-router.route("/").get(getLocations);
-
-router.route("/:id").get(getLocationById);
+router.route("/saved").get(protect, getSavedLocations);
+router.route("/").get(getLocations).post(protect, addLocation);
+router.route("/:id").get(getLocationById).delete(protect, deleteLocation);
 
 export default router;
