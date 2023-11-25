@@ -6,8 +6,6 @@ const Profile = () => {
 
   const { data: user, isLoading, isError } = useGetUserByIdQuery(userInfo._id);
 
-  console.log(user);
-
   return (
     <div className="profile">
       {isLoading ? (
