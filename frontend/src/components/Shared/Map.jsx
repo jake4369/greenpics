@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
+
 mapboxgl.accessToken =
   "pk.eyJ1IjoiamRvZ2c0MzY5IiwiYSI6ImNscGJjdWlxdTBkY3IycW82MnJhaDBsN3gifQ.L4KHq_l8UVwmgHm6GagcrA";
 
