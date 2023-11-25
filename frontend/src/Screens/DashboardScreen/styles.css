@@ -132,6 +132,65 @@
   border: 1px solid gray;
 }
 
+/* ========== 
+ MY LOCATIONS
+ ========== */
+.my-locationsscreen {
+  margin-bottom: 4rem;
+}
+
+.my-locationsscreen h1 {
+  margin-bottom: 1rem;
+}
+
+.saved-locations__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.saved-location {
+  display: flex;
+  align-items: center;
+}
+
+.saved-location img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.saved-location__text-content {
+  margin-right: auto;
+}
+
+.saved-location__text-content a {
+  font-size: 1.125rem;
+  display: inline-block;
+  color: darkgreen;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.saved-location__btns {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.saved-location__btns button {
+  font-size: 1.125rem;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.delete-location-btn {
+  color: red;
+}
+
 /* ============================== 
  MEDIA QUERIES
  ============================== */
@@ -223,5 +282,30 @@
 
   .addlocation form .submit-btn {
     cursor: pointer;
+  }
+
+  /* ========== 
+  MY LOCATIONS
+  ========== */
+
+  .my-locationsscreen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .saved-locations__container {
+    gap: 4rem;
+  }
+
+  .saved-location__text-content a {
+    font-size: 1.5rem;
+  }
+
+  .saved-location__text-content .county {
+    font-size: 1.25rem;
+  }
+
+  .saved-location__btns {
+    gap: 0.5rem;
   }
 }
