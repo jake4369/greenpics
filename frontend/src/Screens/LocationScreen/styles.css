@@ -147,3 +147,47 @@ ul.public-info li span {
     margin-right: 1.5rem;
   }
 }
+
+/* ==========
+REVIEW COMPONENT
+=========== */
+
+/* .grid-row-2 {
+  display: flex;
+  flex-direction:row;
+  align-items: top;
+  
+
+} */
+.review-container { 
+  width: 520px;
+  display: flex;
+  flex-direction: row;
+  background-color: lightblue;
+  border: 1px solid lightblue;
+  border-radius: 15px;
+  align-items: center;
+}
+
+.user {
+  padding: 20px;
+  font-size: 20px;
+  color: green;
+}
+
+.profile-image--review {
+  height: 100px;
+  margin: 10px;
+  border-radius:  20px;
+}
+
+.review {
+  display: flex;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+
+
+

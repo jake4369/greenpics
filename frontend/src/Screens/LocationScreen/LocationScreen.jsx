@@ -6,6 +6,7 @@ import { FaArrowLeft } from "react-icons/fa";
 
 import LocationDetails from "../../Components/LocationScreen/LocationDetails";
 import PublicInfo from "../../Components/LocationScreen/PublicInfo";
+import Review from "../../Components/LocationScreen/Review"
 
 const LocationScreen = () => {
   const { id: locationId } = useParams();
@@ -37,8 +38,10 @@ const LocationScreen = () => {
         </div>
       )}
 
-      <div className="grid-row-2">REVIEWS</div>
-     {/* <Review /> */}
+      <div className="grid-row-2">
+      <Review />
+      </div>
+     
     </div>
   );
 };
