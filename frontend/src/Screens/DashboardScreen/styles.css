@@ -71,52 +71,6 @@
   margin-bottom: 1rem;
 }
 
-.addlocation form {
-  display: flex;
-  flex-direction: column;
-}
-
-.addlocation form label {
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-.addlocation form input,
-.addlocation form textarea {
-  padding: 0.6875rem 1rem;
-  border: 1px solid gray;
-  border-radius: 5px;
-  outline: none;
-  margin-bottom: 1.5rem;
-}
-
-.addlocation form textarea {
-  resize: none;
-  height: 150px;
-}
-
-.addlocation form ul {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.addlocation form ul li {
-  display: flex;
-  align-items: center;
-}
-
-.addlocation form ul li label {
-  margin-bottom: 0;
-}
-
-.addlocation form input[type="checkbox"] {
-  margin: 0 0 0 1rem;
-}
-
 .addlocation__map-container {
   margin-bottom: 2rem;
 }
@@ -189,6 +143,13 @@
 
 .delete-location-btn {
   color: red;
+}
+
+/* ========== 
+ EDIT PROFILE
+ ========== */
+.edit-profile h1 {
+  margin-bottom: 1rem;
 }
 
 /* ============================== 
@@ -280,10 +241,6 @@
     margin-bottom: 2rem;
   }
 
-  .addlocation form .submit-btn {
-    cursor: pointer;
-  }
-
   /* ========== 
   MY LOCATIONS
   ========== */
@@ -307,5 +264,13 @@
 
   .saved-location__btns {
     gap: 0.5rem;
+  }
+
+  /* ========== 
+  EDIT PROFILE
+  ========== */
+  .edit-profile h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
   }
 }
