@@ -30,6 +30,7 @@ const LocationScreen = () => {
             </Link>
             <LocationDetails location={location} />
             <PublicInfo location={location} />
+            
           </div>
 
           <div className="grid-col-2"></div>
@@ -37,6 +38,7 @@ const LocationScreen = () => {
       )}
 
       <div className="grid-row-2">REVIEWS</div>
+     {/* <Review /> */}
     </div>
   );
 };
