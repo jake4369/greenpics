@@ -51,5 +51,6 @@ const locationSchema = new mongoose.Schema(
 );
 
 const Location = mongoose.model("Location", locationSchema);
+const Review = mongoose.model("Review", reviewSchema);
 
-export default Location;
+export { Review, Location };

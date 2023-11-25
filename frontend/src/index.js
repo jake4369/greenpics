@@ -9,6 +9,7 @@ import {
 import { Provider } from "react-redux";
 import store from "./store";
 import "./index.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 import App from "./App";
 
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
