@@ -33,6 +33,13 @@
 
 /* footer */
 
+footer {
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+  }
+
 .footer-container {
   display: flex;
   justify-content: space-between;
