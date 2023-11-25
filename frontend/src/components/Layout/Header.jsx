@@ -4,32 +4,16 @@ const Header = () => {
   return (
     <>
       <nav className="navBar-container">
-        <Link
-          to="/"
-          className="nav-link"
-          href="frontend/src/components/screens/HomeScreen/HomeScreen.jsx"
-        >
+        <Link to="/" className="nav-link">
           Home
         </Link>
-        <Link
-          to="/profile"
-          className="nav-link"
-          href="frontend/src/components/screens/ProfileScreen/ProfileScreen.jsx"
-        >
+        <Link to="/profile" className="nav-link">
           Profile
         </Link>
-        <Link
-          to="/register"
-          className="nav-link"
-          href="frontend/src/components/screens/AuthScreens/RegisterScreen.jsx"
-        >
+        <Link to="/register" className="nav-link">
           Register
         </Link>
-        <Link
-          to="/login"
-          className="nav-link"
-          href="frontend/src/components/screens/AuthScreens/LoginScreen.jsx"
-        >
+        <Link to="/login" className="nav-link">
           Login
         </Link>
       </nav>
