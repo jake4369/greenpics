@@ -18,6 +18,8 @@ import DashboardScreen from "./Screens/DashboardScreen/DashboardScreen";
 import Profile from "./Components/DashboardScreen/Profile";
 import AddLocation from "./Components/DashboardScreen/AddLocation";
 import MyLocations from "./Components/DashboardScreen/MyLocations";
+import EditProfile from "./Components/DashboardScreen/EditProfile";
+
 import LoginScreen from "./Screens/AuthScreens/LoginScreen";
 import RegisterScreen from "./Screens/AuthScreens/RegisterScreen";
 import PrivateRoute from "./Components/PrivateRoute.jsx";
@@ -35,6 +37,7 @@ const router = createBrowserRouter(
           <Route index={true} path="/dashboard/profile" element={<Profile />} />
           <Route path="/dashboard/addlocation" element={<AddLocation />} />
           <Route path="/dashboard/mylocations" element={<MyLocations />} />
+          <Route path="/dashboard/edit" element={<EditProfile />} />
         </Route>
       </Route>
     </Route>
