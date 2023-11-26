@@ -10,7 +10,7 @@ const MyLocations = () => {
     isError,
     refetch,
   } = useGetSavedLocationsQuery();
-
+console.log(savedLocations);
   return (
     <div className="my-locationsscreen">
       <h1>My Locations</h1>
