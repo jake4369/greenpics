@@ -18,6 +18,7 @@ const LocationScreen = () => {
     data: location,
     isLoading: loadingLocation,
     isError,
+    refetch,
   } = useGetLocationQuery(locationId);
 
   const openGoogleMaps = () => {
@@ -58,12 +59,17 @@ const LocationScreen = () => {
         <div className="grid-row-2">
           {location.reviews.length ? (
             location.reviews.map((review) => (
-              <Review key={review._id} review={review} />
+              <Review
+                key={review._id}
+                location={location}
+                review={review}
+                refetch={refetch}
+              />
             ))
           ) : (
             <p>No reviews</p>
           )}
-          <ReviewForm locationId={locationId} />
+          <ReviewForm location={location} refetch={refetch} />
         </div>
       )}
     </div>

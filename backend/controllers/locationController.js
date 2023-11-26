@@ -301,10 +301,54 @@ const createLocationReview = asyncHandler(async (req, res) => {
   }
 });
 
+const deleteLocationReview = asyncHandler(async (req, res) => {
+  const location = await Location.findById(req.params.id);
+
+  if (location) {
+    const review = location.reviews.find(
+      (r) => r._id.toString() === req.params.reviewId
+    );
+
+    if (!review) {
+      res.status(404);
+      throw new Error('Review not found');
+    }
+
+    // Check if the user is authorized to delete the review
+    if (review.user.toString() !== req.user._id.toString()) {
+      res.status(401);
+      throw new Error('Not authorized to delete this review');
+    }
+
+    // Remove the review from the array
+    location.reviews = location.reviews.filter(
+      (r) => r._id.toString() !== req.params.reviewId
+    );
+
+    location.numReviews = location.reviews.length;
+
+    if (location.numReviews === 0) {
+      location.rating = 0;
+    } else {
+      location.rating =
+        location.reviews.reduce((acc, item) => item.rating + acc, 0) /
+        location.reviews.length;
+    }
+
+    await location.save();
+    res.json({ message: 'Review deleted' });
+  } else {
+    res.status(404);
+    throw new Error('Location not found');
+  }
+});
+
+
 export {
   getLocations,
   getLocationById,
   createLocationReview,
+  deleteLocationReview,
   addLocation,
   addFavourite,
   getSavedLocations,

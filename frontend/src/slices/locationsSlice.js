@@ -76,6 +76,13 @@ export const locationsApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Location"],
     }),
+    deleteReview: builder.mutation({
+      query: (data) => ({
+        url: `${LOCATIONS_URL}/${data.locationId}/reviews/${data.reviewId}`,
+        method: "DELETE",
+      }),
+      providesTags: ["Location"],
+    }),
   }),
 });
 
@@ -90,4 +97,5 @@ export const {
   useDeleteLocationMutation,
   useRemoveFavouriteMutation,
   useCreateReviewMutation,
+  useDeleteReviewMutation,
 } = locationsApiSlice;
