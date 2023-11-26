@@ -48,7 +48,7 @@ const Card = ({ location, refetch }) => {
             className="location-card__btn remove-favourite-btn"
             onClick={() => handleRemoveFavorite(location._id)}
           >
-            <FaHeart />
+            <FaTrash /> Remove favourite
           </button>
         ) : (
           <p className="location-card__reviews">
