@@ -15,6 +15,7 @@ const locations = [
     food: true,
     toilets: true,
     reviews: [],
+    rating: 0,
   },
   {
     name: "Malvern Hills",
