@@ -6,9 +6,9 @@ import { FaArrowLeft } from "react-icons/fa";
 
 import LocationDetails from "../../Components/LocationScreen/LocationDetails";
 import PublicInfo from "../../Components/LocationScreen/PublicInfo";
-import Map from "../../Components/Shared/Map";
 import Review from "../../Components/LocationScreen/Review";
 import Loader from "./../../Components/Shared/Loader";
+import GoogleMap from "./../../Components/Shared/GoogleMap";
 
 const LocationScreen = () => {
   const { id: locationId } = useParams();
@@ -19,7 +19,10 @@ const LocationScreen = () => {
     isError,
   } = useGetLocationQuery(locationId);
 
-  console.log(location);
+  const openGoogleMaps = () => {
+    const url = `https://www.google.com/maps?q=${location.lat},${location.lng}`;
+    window.open(url, "_blank");
+  };
 
   return (
     <div className="screen locationscreen">
@@ -38,7 +41,14 @@ const LocationScreen = () => {
           </div>
 
           <div className="grid-col-2">
-            <Map lng={location.lng} lat={location.lat} customZoom={12} />
+            {/* <div className="locationscreen__map-container">
+              <GoogleMap
+                lng={location.lng}
+                lat={location.lat}
+                customZoom={12}
+              />
+              <button onClick={openGoogleMaps}>Open Google Maps</button>
+      </div> */}
           </div>
         </div>
       )}
