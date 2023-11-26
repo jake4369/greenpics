@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import {
   useGetUserByIdQuery,
   useUpdateUserProfileMutation,
@@ -57,10 +58,11 @@ const EditProfile = () => {
 
     try {
       const res = await updateUserProfile(data).unwrap();
+      toast.success("Successfully updated profile");
       refetch();
       navigate("/dashboard/profile");
     } catch (error) {
-      console.log(error?.data?.message || error?.error);
+      toast.error(error?.data?.message || error.message);
     }
   };
 
@@ -71,7 +73,7 @@ const EditProfile = () => {
       {isUpdating ? (
         <Loader />
       ) : errorUpdating ? (
-        <Message>An error occurred. Please refresh the browser.</Message> 
+        <Message>An error occurred. Please refresh the browser.</Message>
       ) : (
         <form onSubmit={handleSubmit}>
           <label>Profile Image</label>

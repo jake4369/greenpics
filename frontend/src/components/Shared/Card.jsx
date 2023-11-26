@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import {
   useAddFavouriteMutation,
   useRemoveFavouriteMutation,
@@ -32,10 +33,10 @@ const Card = ({ location, refetch }) => {
   const handleAddFavourite = async (id) => {
     try {
       const result = await addFavourite(id);
-
+      toast.success("Added to Favourite");
       refetchUser();
     } catch (error) {
-      console.log(error);
+      toast.error(error?.data?.message || error.message);
     }
   };
 
@@ -43,10 +44,11 @@ const Card = ({ location, refetch }) => {
     if (window.confirm("Are you sure?")) {
       try {
         const result = await removeFavourite(id);
+        toast.success("Successfully deleted");
         refetch();
         refetchUser();
       } catch (error) {
-        console.log(error);
+        toast.error(error?.data?.message || error.message);
       }
     }
   };
@@ -72,7 +74,7 @@ const Card = ({ location, refetch }) => {
               {location.reviews.length} Reviews
             </p>
           )}
-          {pathname === "/" && (
+          {userInfo && pathname === "/" && (
             <button
               className="location-card__btn add-favourite-btn"
               onClick={() => handleAddFavourite(location._id)}

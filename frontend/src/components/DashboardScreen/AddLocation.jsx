@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import {
   useAddLocationMutation,
   useUploadLocationImageMutation,
@@ -55,21 +56,11 @@ const AddLocation = () => {
       setToilets(false);
       setLng(-1.6642621);
       setLat(53.3958079);
+      toast.success("Successfully added");
     } catch (error) {
-      console.log(error);
+      toast.error(error?.data?.message || error.message);
     }
   };
-
-  // const handleFileUpload = async (e) => {
-  //   const formData = new FormData();
-  //   formData.append("image", e.target.files[0]);
-  //   try {
-  //     const res = await uploadLocationImage(formData).unwrap();
-
-  //     setImg(res.image);
-  //     console.log("Successfully uploaded image");
-  //   } catch (err) {}
-  // };
 
   const handleFileUpload = async (e) => {
     const formData = new FormData();
@@ -79,9 +70,9 @@ const AddLocation = () => {
       const res = await uploadLocationImage(formData).unwrap();
       setImg(res.image);
       e.target.value = ""; // Clear the file input after successful upload
-      console.log("Successfully uploaded image");
-    } catch (err) {
-      // Handle error
+      toast.success("Successfully uploaded image");
+    } catch (error) {
+      toast.error(error?.data?.message || error.message);
     }
   };
 

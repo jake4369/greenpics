@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { useCreateReviewMutation } from "./../../slices/locationsSlice";
 import { useSelector } from "react-redux";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 
 const ReviewForm = ({ location, refetch }) => {
   const [rating, setRating] = useState(0);
@@ -47,8 +47,9 @@ const ReviewForm = ({ location, refetch }) => {
         4: false,
         5: false,
       });
+      toast.success("Payment successful");
     } catch (error) {
-      toast.error(error?.data.message || error?.error);
+      toast.error(error?.data.message || error.message);
     }
   };
 
