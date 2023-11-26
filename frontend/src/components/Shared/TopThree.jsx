@@ -9,6 +9,7 @@ const TopThree = () => {
     : [];
 
   return (
+
     <div>
       {sortedLocations.map((location) => (
         <Card key={location._id} location={location} />
@@ -16,5 +17,4 @@ const TopThree = () => {
     </div>
   );
 };
-
 export default TopThree;
