@@ -18,10 +18,7 @@ const TopThree = () => {
 )}
 
 
-  console.log(locations);
 
-  return <div>Top Three</div>;
-};
 
 
 export default TopThree;
