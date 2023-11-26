@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useDeleteLocationMutation } from "./../../slices/locationsSlice";
 import { FaEdit, FaTrash } from "react-icons/fa";
@@ -13,8 +14,11 @@ const SavedLocation = ({ location, refetch }) => {
     if (window.confirm("Are you sure?")) {
       try {
         await deleteLocation(locationId);
+        toast.success("Successfully deleted");
         refetch();
-      } catch (error) {}
+      } catch (error) {
+        toast.error(error?.data?.message || error.message);
+      }
     }
   };
   return (

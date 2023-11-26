@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "./../../Components/Shared/Loader";
 import { useRegisterMutation } from "./../../slices/usersApiSlice";
 import { setCredentials } from "./../../slices/authSlice";
+import { toast } from "react-toastify";
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
@@ -44,10 +45,11 @@ const RegisterScreen = () => {
           county,
           password,
         }).unwrap();
+        toast.success("Registration successful");
         dispatch(setCredentials({ ...res }));
         navigate(redirect);
       } catch (error) {
-        console.log(error?.data.message || error?.error);
+        toast.error(error?.data?.message || error.message);
       }
     }
   };
