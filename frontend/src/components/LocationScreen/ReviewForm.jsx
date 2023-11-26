@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import {
-  useGetLocationQuery,
-  useCreateReviewMutation,
-} from "./../../slices/locationsSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useCreateReviewMutation } from "./../../slices/locationsSlice";
+import { useSelector } from "react-redux";
 
-const ReviewForm = ({ locationId }) => {
+const ReviewForm = ({ location, refetch }) => {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const [checkedValues, setCheckedValues] = useState({
@@ -19,15 +16,6 @@ const ReviewForm = ({ locationId }) => {
     5: false,
   });
 
-  const dispatch = useDispatch();
-
-  const {
-    data: location,
-    isLoading,
-    isError,
-    refetch,
-  } = useGetLocationQuery(locationId);
-
   const [
     createReview,
     { isLoading: loadingLocationReview, error: reviewError },
@@ -37,6 +25,8 @@ const ReviewForm = ({ locationId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const locationId = location._id;
 
     const data = {
       locationId,

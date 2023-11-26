@@ -7,6 +7,7 @@ import {
   getLocations,
   getLocationById,
   createLocationReview,
+  deleteLocationReview,
   addLocation,
   addFavourite,
   getSavedLocations,
@@ -20,6 +21,9 @@ router.route("/favourites").get(protect, getFavouriteLocations);
 router.route("/").get(getLocations).post(protect, addLocation);
 router.route("/:id").get(getLocationById).delete(protect, deleteLocation);
 router.route("/:id/reviews").post(protect, checkObjectId, createLocationReview);
+router
+  .route("/:id/reviews/:reviewId") // Route for deleting a review
+  .delete(protect, deleteLocationReview);
 router
   .route("/:id/favourites")
   .post(protect, addFavourite)
