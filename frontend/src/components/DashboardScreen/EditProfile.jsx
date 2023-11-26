@@ -6,6 +6,8 @@ import {
   useUpdateUserProfileMutation,
 } from "./../../slices/usersApiSlice";
 
+import Loader from "./../Shared/Loader";
+
 const EditProfile = () => {
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -35,8 +37,6 @@ const EditProfile = () => {
       setUsername(user.username);
       setCounty(user.county);
       setEmail(user.email);
-      setProfileImage(user.profileImage);
-      setBio(user.bio);
     }
   }, [userInfo, user, userInfo.name, userInfo.email]);
 
@@ -68,7 +68,7 @@ const EditProfile = () => {
       <h1>Edit Profile</h1>
 
       {isUpdating ? (
-        <p>Loading...</p>
+        <Loader />
       ) : errorUpdating ? (
         <p>Error...</p>
       ) : (
@@ -76,7 +76,7 @@ const EditProfile = () => {
           <label>Profile Image</label>
           <input
             type="text"
-            placeholder="Change profile image"
+            placeholder="Image url"
             value={profileImage}
             onChange={(e) => setProfileImage(e.target.value)}
           />
@@ -128,7 +128,9 @@ const EditProfile = () => {
             onChange={(e) => setBio(e.target.value)}
           ></textarea>
 
-          <button className="submit-btn ">Submit</button>
+          <button className="submit-btn" disabled={isUpdating}>
+            Submit
+          </button>
         </form>
       )}
     </div>

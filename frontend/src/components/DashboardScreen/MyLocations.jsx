@@ -1,6 +1,7 @@
 import { useGetSavedLocationsQuery } from "./../../slices/locationsSlice";
 
 import SavedLocation from "./SavedLocation";
+import Loader from "./../Shared/Loader";
 
 const MyLocations = () => {
   const {
@@ -15,7 +16,7 @@ const MyLocations = () => {
       <h1>My Locations</h1>
 
       {isLoading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : isError ? (
         <p>Error...</p>
       ) : (

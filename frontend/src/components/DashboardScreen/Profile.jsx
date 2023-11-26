@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { useGetUserByIdQuery } from "../../slices/usersApiSlice";
 
+import Loader from "./../Shared/Loader";
+
 const Profile = () => {
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -9,7 +11,7 @@ const Profile = () => {
   return (
     <div className="profile">
       {isLoading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : isError ? (
         <p>Error...</p>
       ) : (

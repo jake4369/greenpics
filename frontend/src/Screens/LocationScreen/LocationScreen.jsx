@@ -6,7 +6,8 @@ import { FaArrowLeft } from "react-icons/fa";
 
 import LocationDetails from "../../Components/LocationScreen/LocationDetails";
 import PublicInfo from "../../Components/LocationScreen/PublicInfo";
-import Review from "../../Components/LocationScreen/Review"
+import Review from "../../Components/LocationScreen/Review";
+import Loader from "./../../Components/Shared/Loader";
 
 const LocationScreen = () => {
   const { id: locationId } = useParams();
@@ -20,7 +21,7 @@ const LocationScreen = () => {
   return (
     <div className="screen locationscreen">
       {loadingLocation ? (
-        <p>Loading...</p>
+        <Loader />
       ) : isError ? (
         <p>Error...</p>
       ) : (
@@ -31,7 +32,6 @@ const LocationScreen = () => {
             </Link>
             <LocationDetails location={location} />
             <PublicInfo location={location} />
-            
           </div>
 
           <div className="grid-col-2"></div>
@@ -39,9 +39,8 @@ const LocationScreen = () => {
       )}
 
       <div className="grid-row-2">
-      <Review />
+        <Review />
       </div>
-     
     </div>
   );
 };

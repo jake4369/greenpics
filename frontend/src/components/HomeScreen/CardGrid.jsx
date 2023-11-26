@@ -1,5 +1,7 @@
 import { useGetLocationsQuery } from "../../slices/locationsSlice";
+
 import Card from "../Shared/Card";
+import Loader from "./../Shared/Loader";
 
 const CardGrid = () => {
   const { data: locations, isLoading, isError } = useGetLocationsQuery();
@@ -11,9 +13,15 @@ const CardGrid = () => {
     : [];
 
   return (
-    <section className="homescreen__card-grid">
-      {isLoading ? <p>Loading...</p> : isError ? <p>{isError?.data?.message || isError?.error}</p> : cards}
-    </section>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : isError ? (
+        <p>Error...</p>
+      ) : (
+        <section className="homescreen__card-grid">{cards}</section>
+      )}
+    </>
   );
 };
 

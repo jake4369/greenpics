@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAddLocationMutation } from "./../../slices/locationsSlice";
 
 import Map from "../Shared/Map";
+import Loader from "./../Shared/Loader";
 
 const AddLocation = () => {
   const [name, setName] = useState("");
@@ -15,7 +16,8 @@ const AddLocation = () => {
   const [lng, setLng] = useState(-4.7913);
   const [lat, setLat] = useState(54.3222);
 
-  const [addLocation, { isLoading, isError }] = useAddLocationMutation();
+  const [addLocation, { isLoading: isSubmitting, isError }] =
+    useAddLocationMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,8 +58,8 @@ const AddLocation = () => {
     <div className="addlocation">
       <h1>Add A Location</h1>
 
-      {isLoading ? (
-        <p>Loading...</p>
+      {isSubmitting ? (
+        <Loader />
       ) : isError ? (
         <p>Error...</p>
       ) : (
@@ -143,7 +145,7 @@ const AddLocation = () => {
             {/* <Map lng={lng} setLng={setLng} lat={lat} setLat={setLat} /> */}
           </div>
 
-          <button className="submit-btn" disabled={isLoading}>
+          <button className="submit-btn" disabled={isSubmitting}>
             Submit
           </button>
         </form>
