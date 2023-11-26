@@ -37,7 +37,7 @@ const locationSchema = new mongoose.Schema(
     lng: { type: Number, required: true, default: -4.7913 },
     lat: { type: Number, required: true, default: 54.3222 },
     numReviews: { type: Number, default: 0 },
-    img: { type: [String], required: true },
+    img: { type: String, required: true },
     description: { type: String, required: true },
     parking: { type: Boolean, required: true, default: false },
     disabledAccess: { type: Boolean, required: true, default: false },
