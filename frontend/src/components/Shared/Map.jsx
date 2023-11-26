@@ -20,9 +20,9 @@ const Map = ({ lng, setLng, lat, setLat, customZoom }) => {
     });
 
     // Add navigation control (the +/- zoom buttons)
-    if (pathname === "/dashboard/addlocation") {
-      map.addControl(new mapboxgl.NavigationControl(), "top-right");
+    map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
+    if (pathname === "/dashboard/addlocation") {
       map.on("move", () => {
         setLng(map.getCenter().lng.toFixed(4));
         setLat(map.getCenter().lat.toFixed(4));
