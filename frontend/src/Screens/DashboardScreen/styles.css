@@ -149,6 +149,10 @@
 /* ========== 
  FAVOURITES
  ========== */
+.favourites-screen {
+  margin-bottom: 4rem;
+}
+
 .favourites-screen h1 {
   margin-bottom: 1rem;
 }
