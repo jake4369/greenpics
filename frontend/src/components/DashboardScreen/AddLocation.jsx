@@ -39,7 +39,6 @@ const AddLocation = () => {
       toilets,
       lng,
       lat,
-      reviews: [],
     };
 
     try {
