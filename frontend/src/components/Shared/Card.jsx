@@ -1,21 +1,35 @@
-import { Link } from "react-router-dom";
-import { useAddFavouriteMutation } from "./../../slices/locationsSlice";
+import { Link, useLocation } from "react-router-dom";
+import {
+  useAddFavouriteMutation,
+  useRemoveFavouriteMutation,
+} from "./../../slices/locationsSlice";
+import { FaTrash } from "react-icons/fa";
 
-const Card = ({ location }) => {
-  const [addFavourite, { isLoading: isSubmitting, isError }] =
+const Card = ({ location, refetch }) => {
+  const [addFavourite, { isLoading: savingFavourite, isError: errorSaving }] =
     useAddFavouriteMutation();
 
-  const handleAddFavourite = async (id) => {
-    console.log(id);
-    try {
-      // Trigger the mutation
-      const result = await addFavourite(id);
+  const [removeFavourite, { isLoading: removing, isError: errorRemoving }] =
+    useRemoveFavouriteMutation();
 
-      // Handle the result if needed
-      console.log(result); // Log the result or update state as needed
+  const { pathname } = useLocation();
+
+  const handleAddFavourite = async (id) => {
+    try {
+      const result = await addFavourite(id);
     } catch (error) {
-      // Handle errors
-      console.error("Error adding favourite:", error);
+      console.log(error);
+    }
+  };
+
+  const handleRemoveFavorite = async (id) => {
+    if (window.confirm("Are you sure?")) {
+      try {
+        const result = await removeFavourite(id);
+        refetch();
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -30,7 +44,18 @@ const Card = ({ location }) => {
         <p className="location-card__reviews">
           {location.reviews.length} Reviews
         </p>
-        <button onClick={() => handleAddFavourite(location._id)}>Add</button>
+        {pathname === "/" ? (
+          <button onClick={() => handleAddFavourite(location._id)}>Add</button>
+        ) : pathname === "/dashboard/favourites" ? (
+          <button
+            className="remove-favourite-btn"
+            onClick={() => handleRemoveFavorite(location._id)}
+          >
+            <FaTrash />
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
