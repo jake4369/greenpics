@@ -165,7 +165,7 @@ const AddLocation = () => {
             </li>
           </ul>
 
-          {/* <div className="addlocation__map-container">
+          <div className="addlocation__map-container">
             <GoogleMap
               lng={lng}
               setLng={setLng}
@@ -174,7 +174,7 @@ const AddLocation = () => {
               customZoom={6}
             />
             <small>Zoom in and click location to add map marker</small>
-          </div> */}
+          </div>
 
           <button className="submit-btn" disabled={isSubmitting}>
             Submit

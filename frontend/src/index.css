@@ -121,6 +121,13 @@ img {
   color: red;
 }
 
+.rating {
+  display: flex;
+  align-items: center;
+  color: #f8e825;
+  margin-bottom: 1rem;
+}
+
 /* ===== MAP ===== */
 .map-container {
   height: 400px;

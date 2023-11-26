@@ -46,11 +46,11 @@ const LocationScreen = () => {
 
           <div className="grid-col-2">
             <div className="locationscreen__map-container">
-              {/* <GoogleMap
+              <GoogleMap
                 lng={location.lng}
                 lat={location.lat}
                 customZoom={12}
-              /> */}
+              />
               <button onClick={openGoogleMaps} className="google-maps-btn">
                 Open Google Maps
               </button>
