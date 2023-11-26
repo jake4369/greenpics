@@ -3,6 +3,17 @@ import asyncHandler from "../middleware/asyncHandler.js";
 import { Location, Review } from "./../models/locationModel.js";
 import User from "../models/userModel.js";
 
+// Function to calculate initial rating based on reviews
+function calculateInitialRating(reviews) {
+  if (reviews.length === 0) {
+    return 0; // If there are no reviews yet, set the initial rating as 0
+  } else {
+    // Calculate the average rating based on existing reviews
+    const totalRating = reviews.reduce((acc, review) => acc + review.rating, 0);
+    return totalRating / reviews.length;
+  }
+}
+
 // @desc    Fetch all locations
 // @route   GET /api/products
 // @access  Public
@@ -28,6 +39,62 @@ const getLocationById = asyncHandler(async (req, res) => {
 // @desc    Add a location
 // @route   POST /api/locations
 // @access  Private
+// const addLocation = asyncHandler(async (req, res) => {
+//   const {
+//     name,
+//     county,
+//     lng,
+//     lat,
+//     img,
+//     description,
+//     parking,
+//     disabledAccess,
+//     food,
+//     toilets,
+//     reviews, // Assuming this field contains reviews data
+//   } = req.body;
+
+//   const reviewObjects = reviews.map((review) => ({
+//     ...review,
+//     user: req.user._id, // Assuming you associate reviews with the logged-in user
+//     username: req.user.username,
+//   }));
+
+//   // Create reviews separately
+//   const createdReviews = await Review.create(reviewObjects);
+
+//   // Extract the IDs of the created reviews
+//   const reviewIds = createdReviews.map((review) => review._id);
+
+//   // Create the location and associate the reviews' IDs (ratings)
+//   const location = new Location({
+//     user: req.user._id,
+//     username: req.user.username,
+//     name,
+//     county,
+//     lng,
+//     lat,
+//     img,
+//     description,
+//     parking,
+//     disabledAccess,
+//     food,
+//     toilets,
+//     ratings: reviewIds, // Associate the reviews' IDs with the location's ratings
+//   });
+
+//   const createdLocation = await location.save();
+
+//   // Add to created locations array
+//   await User.findByIdAndUpdate(
+//     req.user._id,
+//     { $push: { createdLocations: createdLocation._id } },
+//     { new: true }
+//   );
+
+//   res.status(201).json(createdLocation);
+// });
+
 const addLocation = asyncHandler(async (req, res) => {
   const {
     name,
@@ -40,22 +107,11 @@ const addLocation = asyncHandler(async (req, res) => {
     disabledAccess,
     food,
     toilets,
-    reviews, // Assuming this field contains reviews data
   } = req.body;
 
-  const reviewObjects = reviews.map((review) => ({
-    ...review,
-    user: req.user._id, // Assuming you associate reviews with the logged-in user
-    username: req.user.username,
-  }));
+  const reviews = []; // Initialize an empty array for reviews initially
+  const rating = calculateInitialRating(reviews); // Calculate initial rating based on reviews
 
-  // Create reviews separately
-  const createdReviews = await Review.create(reviewObjects);
-
-  // Extract the IDs of the created reviews
-  const reviewIds = createdReviews.map((review) => review._id);
-
-  // Create the location and associate the reviews' IDs (ratings)
   const location = new Location({
     user: req.user._id,
     username: req.user.username,
@@ -69,7 +125,9 @@ const addLocation = asyncHandler(async (req, res) => {
     disabledAccess,
     food,
     toilets,
-    ratings: reviewIds, // Associate the reviews' IDs with the location's ratings
+    rating, // Include the initial rating in the location creation
+    numReviews: reviews.length, // Include the number of reviews (initially 0)
+    reviews, // Include the empty reviews array
   });
 
   const createdLocation = await location.save();
@@ -202,9 +260,51 @@ const deleteLocation = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Create new review
+// @route   POST /api/location/:id/reviews
+// @access  Private
+const createLocationReview = asyncHandler(async (req, res) => {
+  const { rating, comment } = req.body;
+
+  const location = await Location.findById(req.params.id);
+
+  if (location) {
+    const alreadyReviewed = location.reviews.find(
+      (r) => r.user.toString() === req.user._id.toString()
+    );
+
+    if (alreadyReviewed) {
+      res.status(400);
+      throw new Error("Location already reviewed");
+    }
+
+    const review = {
+      username: req.user.username,
+      rating: Number(rating),
+      comment,
+      user: req.user._id,
+    };
+
+    location.reviews.push(review);
+
+    location.numReviews = location.reviews.length;
+
+    location.rating =
+      location.reviews.reduce((acc, item) => item.rating + acc, 0) /
+      location.reviews.length;
+
+    await location.save();
+    res.status(201).json({ message: "Review added" });
+  } else {
+    res.status(404);
+    throw new Error("Review not found");
+  }
+});
+
 export {
   getLocations,
   getLocationById,
+  createLocationReview,
   addLocation,
   addFavourite,
   getSavedLocations,
