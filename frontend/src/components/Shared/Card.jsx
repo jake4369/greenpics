@@ -4,6 +4,8 @@ import {
   useRemoveFavouriteMutation,
 } from "./../../slices/locationsSlice";
 import { FaTrash } from "react-icons/fa";
+import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 
 const Card = ({ location, refetch }) => {
   const [addFavourite, { isLoading: savingFavourite, isError: errorSaving }] =
@@ -46,7 +48,7 @@ const Card = ({ location, refetch }) => {
             className="location-card__btn remove-favourite-btn"
             onClick={() => handleRemoveFavorite(location._id)}
           >
-            <FaTrash /> Remove favourite
+            <FaHeart />
           </button>
         ) : (
           <p className="location-card__reviews">
@@ -58,7 +60,7 @@ const Card = ({ location, refetch }) => {
             className="location-card__btn add-favourite-btn"
             onClick={() => handleAddFavourite(location._id)}
           >
-            Add
+            <CiHeart />
           </button>
         )}
       </div>
