@@ -22,8 +22,9 @@ const Review = ({ location, review, refetch }) => {
     try {
       await deleteReview(data).unwrap();
       refetch();
+      toast.success("Review deleted");
     } catch (error) {
-      toast.error(error?.data.message || error?.error);
+      toast.error(error?.data.message || error.message);
     }
   };
 
