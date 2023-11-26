@@ -22,7 +22,7 @@ import EditProfile from "./Components/DashboardScreen/EditProfile";
 
 import LoginScreen from "./Screens/AuthScreens/LoginScreen";
 import RegisterScreen from "./Screens/AuthScreens/RegisterScreen";
-import PrivateRoute from "./Components/PrivateRoute";
+import PrivateRoute from "./Components/Shared/PrivateRoute";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
