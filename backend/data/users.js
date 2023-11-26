@@ -23,17 +23,6 @@ const users = [
     favourites: [],
     isAdmin: false,
   },
-  {
-    name: "Mike Sealey",
-    username: "mike123",
-    email: "mike@email.com",
-    password: bcrypt.hashSync("123456", 10),
-    county: "West Midlands",
-    profileImg: "/images/profile.jpeg",
-    bio: "",
-    favourites: [],
-    isAdmin: false,
-  },
 ];
 
 export default users;

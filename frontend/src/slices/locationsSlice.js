@@ -28,6 +28,13 @@ export const locationsApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: 5,
       invalidatesTags: ["Location"],
     }),
+    uploadLocationImage: builder.mutation({
+      query: (data) => ({
+        url: `/api/upload`,
+        method: "POST",
+        body: data,
+      }),
+    }),
     getSavedLocations: builder.query({
       query: () => ({
         url: `${LOCATIONS_URL}/saved`,
@@ -48,6 +55,7 @@ export const {
   useGetLocationsQuery,
   useGetLocationQuery,
   useAddLocationMutation,
+  useUploadLocationImageMutation,
   useGetSavedLocationsQuery,
   useDeleteLocationMutation,
 } = locationsApiSlice;
