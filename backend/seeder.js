@@ -3,7 +3,7 @@ import colors from "colors";
 import users from "./data/users.js";
 import locations from "./data/locations.js";
 import User from "./models/userModel.js";
-import Location from "./models/locationModel.js";
+import { Location } from "./models/locationModel.js";
 import connectDB from "./config/db.js";
 
 dotenv.config();
