@@ -68,6 +68,14 @@ export const locationsApiSlice = apiSlice.injectEndpoints({
         body: { locationId }, // Wrap locationId in an object to match req.body in the backend
       }),
     }),
+    createReview: builder.mutation({
+      query: (data) => ({
+        url: `${LOCATIONS_URL}/${data.locationId}/reviews`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["Location"],
+    }),
   }),
 });
 
@@ -81,4 +89,5 @@ export const {
   useGetFavouriteLocationsQuery,
   useDeleteLocationMutation,
   useRemoveFavouriteMutation,
+  useCreateReviewMutation,
 } = locationsApiSlice;
