@@ -1,7 +1,7 @@
-import { useGetFavouriteLocationsQuery } from "./../../slices/locationsSlice";
+import { useGetFavouriteLocationsQuery } from "../../slices/locationsSlice";
 
-import Card from "./../../Components/Shared/Card";
-import Loader from "./../../Components/Shared/Loader";
+import Card from "../Shared/Card";
+import Loader from "../Shared/Loader";
 import Message from "../Shared/Message";
 
 const Favourites = () => {

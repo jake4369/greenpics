@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useGetUserByIdQuery } from "../../slices/usersApiSlice";
 
-import Loader from "./../Shared/Loader";
+import Loader from "../Shared/Loader";
 import Message from "../Shared/Message";
 
 const Profile = () => {

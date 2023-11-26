@@ -1,7 +1,7 @@
-import { useGetSavedLocationsQuery } from "./../../slices/locationsSlice";
+import { useGetSavedLocationsQuery } from "../../slices/locationsSlice";
 
 import SavedLocation from "./SavedLocation";
-import Loader from "./../Shared/Loader";
+import Loader from "../Shared/Loader";
 
 const MyLocations = () => {
   const {
@@ -10,7 +10,7 @@ const MyLocations = () => {
     isError,
     refetch,
   } = useGetSavedLocationsQuery();
-console.log(savedLocations);
+  console.log(savedLocations);
   return (
     <div className="my-locationsscreen">
       <h1>My Locations</h1>

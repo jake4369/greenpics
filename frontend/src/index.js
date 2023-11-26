@@ -14,15 +14,15 @@ import App from "./App";
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
 import LocationScreen from "./Screens/LocationScreen/LocationScreen";
 import DashboardScreen from "./Screens/DashboardScreen/DashboardScreen";
-import Profile from "./Components/DashboardScreen/Profile";
-import AddLocation from "./Components/DashboardScreen/AddLocation";
-import MyLocations from "./Components/DashboardScreen/MyLocations";
-import Favourites from "./Components/DashboardScreen/Favourites";
-import EditProfile from "./Components/DashboardScreen/EditProfile";
+import Profile from "./components/DashboardScreen/Profile";
+import AddLocation from "./components/DashboardScreen/AddLocation";
+import MyLocations from "./components/DashboardScreen/MyLocations";
+import Favourites from "./components/DashboardScreen/Favourites";
+import EditProfile from "./components/DashboardScreen/EditProfile";
 
 import LoginScreen from "./Screens/AuthScreens/LoginScreen";
 import RegisterScreen from "./Screens/AuthScreens/RegisterScreen";
-import PrivateRoute from "./Components/Shared/PrivateRoute";
+import PrivateRoute from "./components/PrivateRoute";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { useCreateReviewMutation } from "./../../slices/locationsSlice";
+import { useCreateReviewMutation } from "../../slices/locationsSlice";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 

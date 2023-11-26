@@ -3,10 +3,10 @@ import { toast } from "react-toastify";
 import {
   useAddLocationMutation,
   useUploadLocationImageMutation,
-} from "./../../slices/locationsSlice";
+} from "../../slices/locationsSlice";
 
-import GoogleMap from "./../../Components/Shared/GoogleMap";
-import Loader from "./../Shared/Loader";
+import GoogleMap from "../Shared/GoogleMap";
+import Loader from "../Shared/Loader";
 import Message from "../Shared/Message";
 
 const AddLocation = () => {

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { useDeleteLocationMutation } from "./../../slices/locationsSlice";
+import { useDeleteLocationMutation } from "../../slices/locationsSlice";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import Message from "../Shared/Message";
-import Loader from "./../Shared/Loader";
+import Loader from "../Shared/Loader";
 
 const SavedLocation = ({ location, refetch }) => {
   const [deleteLocation, { isLoading: loadingDelete, isError: errorDeleting }] =
