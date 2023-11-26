@@ -6,7 +6,7 @@
 }
 
 .sidebar {
-  background: lightblue;
+  background: rgb(248, 245, 245);
   padding: 1rem;
   border-radius: 0.3125rem;
   margin-bottom: 2rem;
@@ -19,7 +19,7 @@
 }
 
 .mobile-sidebar a {
-  color: #fff;
+  color: darkgreen;
   font-size: 2rem;
 }
 
@@ -206,7 +206,7 @@
   .desktop-sidebar a {
     display: flex;
     align-items: center;
-    color: #fff;
+    color: darkgreen;
     font-size: 1.5rem;
     text-decoration: none;
   }

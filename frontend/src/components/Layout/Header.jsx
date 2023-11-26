@@ -34,9 +34,11 @@ const Header = () => {
           <Link to="/dashboard/profile" className="nav-link">
             Dashboard
           </Link>
-          <Link to="/register" className="nav-link">
-            Register
-          </Link>
+          {!userInfo && (
+            <Link to="/register" className="nav-link">
+              Register
+            </Link>
+          )}
           {userInfo ? (
             <Link to="/" className="nav-link" onClick={handleLogout}>
               Logout
