@@ -1,5 +1,8 @@
-import { useState } from "react";
-import { useAddLocationMutation } from "./../../slices/locationsSlice";
+import { useState, useEffect } from "react";
+import {
+  useAddLocationMutation,
+  useUploadLocationImageMutation,
+} from "./../../slices/locationsSlice";
 
 import GoogleMap from "./../../Components/Shared/GoogleMap";
 import Loader from "./../Shared/Loader";
@@ -18,6 +21,9 @@ const AddLocation = () => {
 
   const [addLocation, { isLoading: isSubmitting, isError }] =
     useAddLocationMutation();
+
+  const [uploadLocationImage, { isLoading: loadingUpload }] =
+    useUploadLocationImageMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,7 +56,32 @@ const AddLocation = () => {
       setLng(-1.6642621);
       setLat(53.3958079);
     } catch (error) {
-      console.error("Error adding location:", error);
+      console.log(error);
+    }
+  };
+
+  // const handleFileUpload = async (e) => {
+  //   const formData = new FormData();
+  //   formData.append("image", e.target.files[0]);
+  //   try {
+  //     const res = await uploadLocationImage(formData).unwrap();
+
+  //     setImg(res.image);
+  //     console.log("Successfully uploaded image");
+  //   } catch (err) {}
+  // };
+
+  const handleFileUpload = async (e) => {
+    const formData = new FormData();
+    formData.append("image", e.target.files[0]);
+
+    try {
+      const res = await uploadLocationImage(formData).unwrap();
+      setImg(res.image);
+      e.target.value = ""; // Clear the file input after successful upload
+      console.log("Successfully uploaded image");
+    } catch (err) {
+      // Handle error
     }
   };
 
@@ -81,8 +112,10 @@ const AddLocation = () => {
           />
 
           <label>Upload Image</label>
+          <input type="file" onChange={handleFileUpload} />
           <input
             type="text"
+            placeholder="Or enter image url"
             value={img}
             onChange={(e) => setImg(e.target.value)}
           />
