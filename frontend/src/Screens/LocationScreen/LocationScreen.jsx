@@ -38,7 +38,7 @@ const LocationScreen = () => {
           </div>
 
           <div className="grid-col-2">
-            {/* <Map lng={location.lng} lat={location.lat} customZoom={14} /> */}
+            {/* <Map lng={location.lng} lat={location.lat} customZoom={13} /> */}
           </div>
         </div>
       )}
