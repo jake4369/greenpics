@@ -5,6 +5,10 @@
   margin-bottom: 2rem;
 }
 
+.grid-col-1 {
+  margin-bottom: 2rem;
+}
+
 a.back-btn {
   display: flex;
   align-items: center;
@@ -18,6 +22,16 @@ a.back-btn {
 
 .back-btn__icon {
   margin-right: 0.25rem;
+}
+
+.google-maps-btn {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0.6875rem 2rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
 }
 
 /* ==========
@@ -181,6 +195,11 @@ ul.review-form__checkboxes {
     grid-template-columns: repeat(2, 45%);
     gap: 10%;
     margin-bottom: 4rem;
+    align-items: center;
+  }
+
+  .grid-col-1 {
+    margin-bottom: 0;
   }
 
   /* ==========
