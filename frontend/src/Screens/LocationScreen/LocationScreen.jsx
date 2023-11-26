@@ -57,21 +57,24 @@ const LocationScreen = () => {
       )}
 
       {!loadingLocation && (
-        <div className="grid-row-2">
-          {location.reviews.length ? (
-            location.reviews.map((review) => (
-              <Review
-                key={review._id}
-                location={location}
-                review={review}
-                refetch={refetch}
-              />
-            ))
-          ) : (
-            <p>No reviews</p>
-          )}
-          <ReviewForm location={location} refetch={refetch} />
-        </div>
+        <section className="reviews__section">
+          <div className="reviews-container">
+            <h2>Reviews for {location.name}</h2>
+            {location.reviews.length ? (
+              location.reviews.map((review) => (
+                <Review
+                  key={review._id}
+                  location={location}
+                  review={review}
+                  refetch={refetch}
+                />
+              ))
+            ) : (
+              <p>No reviews</p>
+            )}
+            <ReviewForm location={location} refetch={refetch} />
+          </div>
+        </section>
       )}
     </div>
   );

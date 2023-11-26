@@ -62,7 +62,7 @@ const ReviewForm = ({ location, refetch }) => {
       {userInfo ? (
         <>
           <label>Leave a review for {location.name}?</label>
-          <input
+          <textarea
             type="text"
             placeholder="Leave a review"
             value={comment}
@@ -93,9 +93,9 @@ const ReviewForm = ({ location, refetch }) => {
           </button>
         </>
       ) : (
-        <p>
+        <small>
           <Link to="/login">Sign In</Link> to leave a review
-        </p>
+        </small>
       )}
     </form>
   );

@@ -25,21 +25,23 @@ const Review = ({ location, review, refetch }) => {
   };
 
   return (
-    <div className="review-container">
-      <img
-        className="profile-image--review"
-        src={userInfo.profileImage}
-        alt=""
-      />
-      <h1 className="user">{review.username}</h1>
-
-      <p className="review">{review.comment}</p>
-
-      <p>{review.createdAt.split("T")[0]}</p>
+    <div className="review">
+      <div className="review__data">
+        <img
+          className="review__profile-img"
+          src={userInfo.profileImage}
+          alt=""
+        />
+        <div>
+          <p className="review__user">{review.username}</p>
+          <p className="review__createdAt">{review.createdAt.split("T")[0]}</p>
+        </div>
+      </div>
+      <p className="review__comment">{review.comment}</p>
 
       {userInfo._id === review.user && (
         <button className="delete-review-btn" onClick={handleDeleteReview}>
-          <FaTrash />
+          <FaTrash /> Delete review
         </button>
       )}
     </div>
