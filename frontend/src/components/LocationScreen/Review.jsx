@@ -8,10 +8,8 @@ const profile = {
     " oqwoj, woqaO, jjpossadlasdho jdjsa hdcias oed efhadshowednadsl, dsanjsd , aidjawwndlaksa jsa  udckajba icadsn asl jcadkm adkadcas",
 };
 
-const Review = ({ review, user }) => {
-  console.log(review);
+const Review = ({ review }) => {
   const { userInfo } = useSelector((state) => state.auth);
-  console.log(userInfo);
   return (
     <>
       <div className="review-container">
