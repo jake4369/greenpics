@@ -2,6 +2,7 @@ import { useGetFavouriteLocationsQuery } from "./../../slices/locationsSlice";
 
 import Card from "./../../Components/Shared/Card";
 import Loader from "./../../Components/Shared/Loader";
+import Message from "../Shared/Message";
 
 const Favourites = () => {
   const {
@@ -26,7 +27,7 @@ const Favourites = () => {
           <Loader />
         ) : cards.length ? (
           isError ? (
-            <p>Error...</p>
+            <Message>An error occurred. Please refresh the browser.</Message>
           ) : (
             cards
           )

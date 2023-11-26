@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useGetUserByIdQuery } from "../../slices/usersApiSlice";
 
 import Loader from "./../Shared/Loader";
+import Message from "../Shared/Message";
 
 const Profile = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -13,7 +14,7 @@ const Profile = () => {
       {isLoading ? (
         <Loader />
       ) : isError ? (
-        <p>Error...</p>
+        <Message>An error occurred. Please refresh the browser.</Message>
       ) : (
         <>
           <h1>My Profile</h1>

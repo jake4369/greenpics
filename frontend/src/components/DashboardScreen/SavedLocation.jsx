@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { useDeleteLocationMutation } from "./../../slices/locationsSlice";
 import { FaEdit, FaTrash } from "react-icons/fa";
-
+import Message from "../Shared/Message";
 import Loader from "./../Shared/Loader";
 
 const SavedLocation = ({ location, refetch }) => {
@@ -22,7 +22,7 @@ const SavedLocation = ({ location, refetch }) => {
       {loadingDelete ? (
         <Loader />
       ) : errorDeleting ? (
-        <p>Error...</p>
+        <Message>An error occurred. Please refresh the browser.</Message>
       ) : (
         <div className="saved-location">
           <img src={location.img} alt="" />
