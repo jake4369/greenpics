@@ -7,6 +7,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import LocationDetails from "../../Components/LocationScreen/LocationDetails";
 import PublicInfo from "../../Components/LocationScreen/PublicInfo";
 import Review from "../../Components/LocationScreen/Review";
+import ReviewForm from "../../Components/LocationScreen/ReviewForm";
 import Loader from "./../../Components/Shared/Loader";
 import GoogleMap from "./../../Components/Shared/GoogleMap";
 
@@ -53,9 +54,18 @@ const LocationScreen = () => {
         </div>
       )}
 
-      <div className="grid-row-2">
-        <Review />
-      </div>
+      {!loadingLocation && (
+        <div className="grid-row-2">
+          {location.reviews.length ? (
+            location.reviews.map((review) => (
+              <Review key={review._id} review={review} />
+            ))
+          ) : (
+            <p>No reviews</p>
+          )}
+          <ReviewForm locationId={locationId} />
+        </div>
+      )}
     </div>
   );
 };
