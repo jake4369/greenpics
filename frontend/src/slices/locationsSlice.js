@@ -35,6 +35,13 @@ export const locationsApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    addFavourite: builder.mutation({
+      query: (locationId) => ({
+        url: `${LOCATIONS_URL}/${locationId}/favourites`,
+        method: "POST",
+        body: { locationId }, // Wrap locationId in an object to match req.body in the backend
+      }),
+    }),
     getSavedLocations: builder.query({
       query: () => ({
         url: `${LOCATIONS_URL}/saved`,
@@ -57,5 +64,6 @@ export const {
   useAddLocationMutation,
   useUploadLocationImageMutation,
   useGetSavedLocationsQuery,
+  useAddFavouriteMutation,
   useDeleteLocationMutation,
 } = locationsApiSlice;

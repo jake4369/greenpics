@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import asyncHandler from "../middleware/asyncHandler.js";
 import { Location, Review } from "./../models/locationModel.js";
 import User from "../models/userModel.js";
@@ -98,6 +99,86 @@ const getSavedLocations = asyncHandler(async (req, res) => {
   res.status(200).json(savedLocations);
 });
 
+// @desc    Add a location
+// @route   POST /api/locations/:id
+// @access  Private
+// const addFavourite = asyncHandler(async (req, res) => {
+//   const { locationId } = req.body;
+//   const userId = req.user._id; // Assuming you have the user ID in req.user
+
+//   try {
+//     const user = await User.findById(userId);
+
+//     if (!user) {
+//       res.status(404).json({ message: "User not found" });
+//       return;
+//     }
+
+//     // Check if the locationId already exists in favourites
+//     const alreadyFavorited = user.favourites.some(
+//       (fav) => fav.toString() === locationId
+//     );
+
+//     if (alreadyFavorited) {
+//       res.status(400).json({ message: "Location already in favourites" });
+//       return;
+//     }
+
+//     // Add the locationId to the user's favourites array
+//     user.favourites.push(locationId);
+//     await user.save();
+
+//     res.status(200).json({ message: "Location added to favourites" });
+//   } catch (error) {
+//     res.status(500).json({ message: "Server error" });
+//   }
+// });
+
+const addFavourite = asyncHandler(async (req, res) => {
+  const { locationId } = req.body;
+  const userId = req.user._id; // Assuming you have the user ID in req.user
+
+  try {
+    if (!locationId) {
+      res.status(400).json({ message: "Invalid locationId" });
+      return;
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { $addToSet: { favourites: locationId } }, // Use $addToSet to avoid duplicates
+      { new: true }
+    );
+
+    if (!updatedUser) {
+      res.status(404).json({ message: "User not found" });
+      return;
+    }
+
+    res
+      .status(200)
+      .json({ message: "Location added to favourites", updatedUser });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+// @desc    Get favourite locations
+// @route   GET /api/locations/favourites
+// @access  Private
+const getFavouriteLocations = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id).populate("favourites");
+
+  if (!user) {
+    throw new Error("User not found");
+    return [];
+  }
+
+  const savedLocations = user.favourites;
+  res.status(200).json(savedLocations);
+});
+
 // @desc    Delete saved location
 // @route   GET /api/locations/:id
 // @access  Private
@@ -128,6 +209,8 @@ export {
   getLocations,
   getLocationById,
   addLocation,
+  addFavourite,
   getSavedLocations,
+  getFavouriteLocations,
   deleteLocation,
 };
