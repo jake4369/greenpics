@@ -41,20 +41,25 @@ const Card = ({ location, refetch }) => {
           <p className="location-card__name">{location.name}</p>
         </Link>
         <p className="location-card__county">{location.county}</p>
-        <p className="location-card__reviews">
-          {location.reviews.length} Reviews
-        </p>
-        {pathname === "/" ? (
-          <button onClick={() => handleAddFavourite(location._id)}>Add</button>
-        ) : pathname === "/dashboard/favourites" ? (
+        {pathname === "/dashboard/favourites" ? (
           <button
-            className="remove-favourite-btn"
+            className="location-card__btn remove-favourite-btn"
             onClick={() => handleRemoveFavorite(location._id)}
           >
-            <FaTrash />
+            <FaTrash /> Remove favourite
           </button>
         ) : (
-          ""
+          <p className="location-card__reviews">
+            {location.reviews.length} Reviews
+          </p>
+        )}
+        {pathname === "/" && (
+          <button
+            className="location-card__btn add-favourite-btn"
+            onClick={() => handleAddFavourite(location._id)}
+          >
+            Add
+          </button>
         )}
       </div>
     </div>
