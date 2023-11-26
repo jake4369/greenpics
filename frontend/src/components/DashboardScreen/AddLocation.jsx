@@ -6,6 +6,7 @@ import {
 
 import GoogleMap from "./../../Components/Shared/GoogleMap";
 import Loader from "./../Shared/Loader";
+import Message from "../Shared/Message";
 
 const AddLocation = () => {
   const [name, setName] = useState("");
@@ -91,7 +92,7 @@ const AddLocation = () => {
       {isSubmitting ? (
         <Loader />
       ) : isError ? (
-        <p>Error...</p>
+        <Message>An error occurred. Please refresh the browser.</Message>
       ) : (
         <form onSubmit={handleSubmit}>
           <label>Location</label>

@@ -7,6 +7,7 @@ import {
 } from "./../../slices/usersApiSlice";
 
 import Loader from "./../Shared/Loader";
+import Message from "../Shared/Message";
 
 const EditProfile = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -70,7 +71,7 @@ const EditProfile = () => {
       {isUpdating ? (
         <Loader />
       ) : errorUpdating ? (
-        <p>Error...</p>
+        <Message>An error occurred. Please refresh the browser.</Message> 
       ) : (
         <form onSubmit={handleSubmit}>
           <label>Profile Image</label>

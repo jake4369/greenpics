@@ -10,6 +10,7 @@ import Review from "../../Components/LocationScreen/Review";
 import ReviewForm from "../../Components/LocationScreen/ReviewForm";
 import Loader from "./../../Components/Shared/Loader";
 import GoogleMap from "./../../Components/Shared/GoogleMap";
+import Message from "../../Components/Shared/Message";
 
 const LocationScreen = () => {
   const { id: locationId } = useParams();
@@ -31,7 +32,7 @@ const LocationScreen = () => {
       {loadingLocation ? (
         <Loader />
       ) : isError ? (
-        <p>Error...</p>
+        <Message>An error occurred. Please refresh the browser.</Message>
       ) : (
         <div className="grid-row-1">
           <div className="grid-col-1">
