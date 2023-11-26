@@ -37,7 +37,7 @@ const Map = ({ lng, setLng, lat, setLat, customZoom }) => {
   return (
     <div>
       <div className="map-sidebar">
-        Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+        Longitude: {lng} | Latitude: {lat}
       </div>
       <div ref={mapContainerRef} className="map-container" />
     </div>
