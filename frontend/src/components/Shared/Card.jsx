@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Card = ({ location }) => {
   return (
     <div className="location-card">
-      <img src={location.img[0]} alt="" className="location-card__img" />
+      <img src={location.img} alt="" className="location-card__img" />
       <div className="location-card__text-content">
         <Link to={`/location/${location._id}`}>
           <p className="location-card__name">{location.name}</p>

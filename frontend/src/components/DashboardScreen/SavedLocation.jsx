@@ -25,7 +25,7 @@ const SavedLocation = ({ location, refetch }) => {
         <p>Error...</p>
       ) : (
         <div className="saved-location">
-          <img src={location.img[0]} alt="" />
+          <img src={location.img} alt="" />
           <div className="saved-location__text-content">
             <Link to={`/location/${location._id}`}>
               <p className="name">{location.name}</p>
