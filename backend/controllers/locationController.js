@@ -103,37 +103,6 @@ const getSavedLocations = asyncHandler(async (req, res) => {
 // @route   POST /api/locations/:id
 // @access  Private
 // const addFavourite = asyncHandler(async (req, res) => {
-//   const { locationId } = req.body;
-//   const userId = req.user._id; // Assuming you have the user ID in req.user
-
-//   try {
-//     const user = await User.findById(userId);
-
-//     if (!user) {
-//       res.status(404).json({ message: "User not found" });
-//       return;
-//     }
-
-//     // Check if the locationId already exists in favourites
-//     const alreadyFavorited = user.favourites.some(
-//       (fav) => fav.toString() === locationId
-//     );
-
-//     if (alreadyFavorited) {
-//       res.status(400).json({ message: "Location already in favourites" });
-//       return;
-//     }
-
-//     // Add the locationId to the user's favourites array
-//     user.favourites.push(locationId);
-//     await user.save();
-
-//     res.status(200).json({ message: "Location added to favourites" });
-//   } catch (error) {
-//     res.status(500).json({ message: "Server error" });
-//   }
-// });
-
 const addFavourite = asyncHandler(async (req, res) => {
   const { locationId } = req.body;
   const userId = req.user._id; // Assuming you have the user ID in req.user
@@ -161,6 +130,34 @@ const addFavourite = asyncHandler(async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
+  }
+});
+
+// @desc    Remove a location from favourites
+// @route   DELETE /api/locations/:id
+// @access  Private
+const removeFavourite = asyncHandler(async (req, res) => {
+  const { locationId } = req.body;
+  const userId = req.user._id; // Assuming you have the user ID in req.user
+
+  try {
+    if (!locationId) {
+      throw new Error("Invalid locationId", 400);
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { $pull: { favourites: locationId } }, // Use $pull to remove the location
+      { new: true }
+    );
+
+    if (!updatedUser) {
+      throw new Error("No user found", 404);
+    }
+
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    throw new Error(error);
   }
 });
 
@@ -213,4 +210,5 @@ export {
   getSavedLocations,
   getFavouriteLocations,
   deleteLocation,
+  removeFavourite,
 };

@@ -28,6 +28,12 @@ export const locationsApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: 5,
       invalidatesTags: ["Location"],
     }),
+    getSavedLocations: builder.query({
+      query: () => ({
+        url: `${LOCATIONS_URL}/saved`,
+      }),
+      keepUnusedDataFor: 5,
+    }),
     uploadLocationImage: builder.mutation({
       query: (data) => ({
         url: `/api/upload`,
@@ -42,9 +48,9 @@ export const locationsApiSlice = apiSlice.injectEndpoints({
         body: { locationId }, // Wrap locationId in an object to match req.body in the backend
       }),
     }),
-    getSavedLocations: builder.query({
+    getFavouriteLocations: builder.query({
       query: () => ({
-        url: `${LOCATIONS_URL}/saved`,
+        url: `${LOCATIONS_URL}/favourites`,
       }),
       keepUnusedDataFor: 5,
     }),
@@ -54,6 +60,13 @@ export const locationsApiSlice = apiSlice.injectEndpoints({
         method: "DELETE",
       }),
       providesTags: ["Location"],
+    }),
+    removeFavourite: builder.mutation({
+      query: (locationId) => ({
+        url: `${LOCATIONS_URL}/${locationId}/favourites`,
+        method: "DELETE",
+        body: { locationId }, // Wrap locationId in an object to match req.body in the backend
+      }),
     }),
   }),
 });
@@ -65,5 +78,7 @@ export const {
   useUploadLocationImageMutation,
   useGetSavedLocationsQuery,
   useAddFavouriteMutation,
+  useGetFavouriteLocationsQuery,
   useDeleteLocationMutation,
+  useRemoveFavouriteMutation,
 } = locationsApiSlice;
