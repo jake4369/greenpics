@@ -76,7 +76,7 @@ const LocationScreen = () => {
             <ReviewForm location={location} refetch={refetch} />
           </div>
 
-          <div>
+          <div >
             <TopThree />
           </div>
         </section>
