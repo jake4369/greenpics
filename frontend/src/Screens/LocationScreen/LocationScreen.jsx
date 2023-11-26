@@ -11,6 +11,7 @@ import ReviewForm from "../../Components/LocationScreen/ReviewForm";
 import Loader from "./../../Components/Shared/Loader";
 import GoogleMap from "./../../Components/Shared/GoogleMap";
 import Message from "../../Components/Shared/Message";
+import TopThree from "../../Components/Shared/TopThree";
 
 const LocationScreen = () => {
   const { id: locationId } = useParams();
@@ -73,6 +74,10 @@ const LocationScreen = () => {
               <p>No reviews</p>
             )}
             <ReviewForm location={location} refetch={refetch} />
+          </div>
+
+          <div>
+            <TopThree />
           </div>
         </section>
       )}
