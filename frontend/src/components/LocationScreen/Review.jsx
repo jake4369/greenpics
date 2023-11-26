@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
 import { useDeleteReviewMutation } from "../../slices/locationsSlice";
+import { toast } from "react-toastify"
 
 import { FaTrash } from "react-icons/fa";
+
 
 const Review = ({ location, review, refetch }) => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -18,7 +20,7 @@ const Review = ({ location, review, refetch }) => {
       await deleteReview(data).unwrap();
       refetch();
     } catch (error) {
-      console.log(error);
+      toast.error(error?.data.message || error?.error);
     }
   };
 
