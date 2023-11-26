@@ -56,6 +56,7 @@ img {
   box-shadow: 0px 25px 40px -15px rgba(0, 0, 0, 0.3);
   border-radius: 0.5rem;
   position: relative;
+  background: #fff;
 }
 
 .location-card::after {
@@ -90,6 +91,22 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.125rem;
   margin-bottom: 1rem;
+}
+
+.location-card__btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.location-card__btn.remove-favourite-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.125rem;
+  color: red;
+  width: 10.3125rem;
 }
 
 /* ===== MAP ===== */
@@ -199,8 +216,8 @@ form input[type="checkbox"] {
   }
 
   /* ==========
- SHARED COMPONENTS
- ========== */
+  SHARED COMPONENTS
+  ========== */
 
   /* ===== LOCATION CARD ===== */
   .location-card__text-content {
