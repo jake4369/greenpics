@@ -6,6 +6,7 @@ import { FaArrowLeft } from "react-icons/fa";
 
 import LocationDetails from "../../Components/LocationScreen/LocationDetails";
 import PublicInfo from "../../Components/LocationScreen/PublicInfo";
+import Map from "../../Components/Shared/Map";
 import Review from "../../Components/LocationScreen/Review";
 import Loader from "./../../Components/Shared/Loader";
 
@@ -17,6 +18,8 @@ const LocationScreen = () => {
     isLoading: loadingLocation,
     isError,
   } = useGetLocationQuery(locationId);
+
+  console.log(location);
 
   return (
     <div className="screen locationscreen">
@@ -34,7 +37,9 @@ const LocationScreen = () => {
             <PublicInfo location={location} />
           </div>
 
-          <div className="grid-col-2"></div>
+          <div className="grid-col-2">
+            {/* <Map lng={location.lng} lat={location.lat} customZoom={14} /> */}
+          </div>
         </div>
       )}
 
