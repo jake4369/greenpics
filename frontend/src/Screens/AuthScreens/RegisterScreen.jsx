@@ -1,40 +1,55 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "./../../Components/Shared/Loader";
+import { useRegisterMutation } from "./../../slices/usersApiSlice";
+import { setCredentials } from "./../../slices/authSlice";
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
-  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [county, setCounty] = useState("");
+  const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showConfirmation, setShowConfirmation] = useState(false);
-  const [error, setError] = useState("")
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (password !== confirmPassword){
-      setError("Password is not the same")
-      setShowConfirmation(false)
-      setIsSubmitting(false)
-    } else {
-      setIsSubmitting(true);
-      setShowConfirmation(true);
-      console.log(
-        "name",
-        name,
-        "userName",
-        userName,
-        "email",
-        email,
-        "password",
-        password,
-        "county",
-        county,
-      
-      );
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [register, { isLoading, isError }] = useRegisterMutation();
+
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const { search } = useLocation();
+  const sp = new URLSearchParams(search);
+  const redirect = sp.get("redirect") || "/";
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
     }
-   
+  }, [userInfo, redirect, navigate]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      return;
+    } else {
+      try {
+        const res = await register({
+          name,
+          email,
+          username,
+          county,
+          password,
+        }).unwrap();
+        dispatch(setCredentials({ ...res }));
+        navigate(redirect);
+      } catch (error) {
+        console.log(error?.data.message || error?.error);
+      }
+    }
   };
 
   return (
@@ -46,7 +61,6 @@ const RegisterScreen = () => {
         <input
           type="text"
           placeholder="name"
-          disabled={isSubmitting}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -55,9 +69,8 @@ const RegisterScreen = () => {
         <input
           type="text"
           placeholder="username"
-          disabled={isSubmitting}
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
 
         <label>email</label>
@@ -65,7 +78,6 @@ const RegisterScreen = () => {
           type="email"
           required
           placeholder="email"
-          disabled={isSubmitting}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -74,7 +86,6 @@ const RegisterScreen = () => {
           type="password"
           required
           placeholder="password"
-          disabled={isSubmitting}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -83,7 +94,6 @@ const RegisterScreen = () => {
           type="password"
           required
           placeholder="confirm password"
-          disabled={isSubmitting}
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
@@ -93,17 +103,13 @@ const RegisterScreen = () => {
           type="text"
           required
           placeholder="county"
-          disabled={isSubmitting}
           value={county}
           onChange={(e) => setCounty(e.target.value)}
         />
 
-        <button type="submit" className="login-btn" disabled={isSubmitting} >
-        {isSubmitting ? 'Sending...' : 'Submit'}
-      </button>
-      {error && <p>{error}</p>}
-      {showConfirmation && <p>Profile posted successfully!</p>}
-        
+        <button type="submit" className="login-btn" disabled={isLoading}>
+          {isLoading ? "Sending..." : "Submit"}
+        </button>
       </form>
     </div>
   );

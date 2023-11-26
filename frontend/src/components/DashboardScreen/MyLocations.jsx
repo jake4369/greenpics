@@ -14,28 +14,25 @@ const MyLocations = () => {
   return (
     <div className="my-locationsscreen">
       <h1>My Locations</h1>
-      <div className="my-locationsscreen">
-        <h1>My Locations</h1>
 
-        <div className="saved-locations__container">
-          {isLoading ? (
-            <Loader />
-          ) : savedLocations.length ? (
-            isError ? (
-              <p>Error..</p>
-            ) : (
-              savedLocations.map((location) => (
-                <SavedLocation
-                  key={location._id}
-                  location={location}
-                  refetch={refetch}
-                />
-              ))
-            )
+      <div className="saved-locations__container">
+        {isLoading ? (
+          <Loader />
+        ) : savedLocations.length ? (
+          isError ? (
+            <p>Error..</p>
           ) : (
-            <p>You haven't added any locations</p>
-          )}
-        </div>
+            savedLocations.map((location) => (
+              <SavedLocation
+                key={location._id}
+                location={location}
+                refetch={refetch}
+              />
+            ))
+          )
+        ) : (
+          <p>You haven't added any locations</p>
+        )}
       </div>
     </div>
   );
