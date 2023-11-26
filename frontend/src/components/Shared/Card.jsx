@@ -18,8 +18,8 @@ const Card = ({ location, refetch }) => {
     isLoading,
     isError,
     refetch: refetchUser,
-  } = useGetUserByIdQuery(userInfo._id);
-  const userFavourites = !isLoading ? user.favourites : [];
+  } = useGetUserByIdQuery(userInfo?._id);
+  const userFavourites = !isLoading ? user?.favourites : [];
 
   const [addFavourite, { isLoading: savingFavourite, isError: errorSaving }] =
     useAddFavouriteMutation();
@@ -77,7 +77,7 @@ const Card = ({ location, refetch }) => {
               className="location-card__btn add-favourite-btn"
               onClick={() => handleAddFavourite(location._id)}
             >
-              {userFavourites.includes(location._id) ? (
+              {userFavourites?.includes(location?._id) ? (
                 <FaHeart />
               ) : (
                 <CiHeart />
