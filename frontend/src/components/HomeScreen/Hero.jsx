@@ -1,18 +1,26 @@
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
-    <div className="hero">
+    <section className="hero">
       <div className="hero__text-content">
-        <h1>GreenSpace</h1>
-        <p>
-          GreenSpace is a place to find and share pictures of beautiful,
-          natural, or green places.
-          <br />
-          Whether you're looking for somewhere green to visit, or want to share
-          your favourite green places from lush forests to vibrant gardens,
-          explore an array of breathtaking green landscapes.
-        </p>
+        <div className="hero__text-content">
+          <h1>GreenSpace</h1>
+
+          <p>
+            Embark on a journey through lush forests, vibrant gardens, and
+            breathtaking green landscapes. Whether you seek inspiration for your
+            next adventure or wish to showcase your favorite green sanctuaries,
+            let's celebrate the beauty of nature together.
+          </p>
+
+          <Link to="/login" className="hero__sign-in-btn">
+            Sign In
+          </Link>
+        </div>
       </div>
-    </div>
+      <img src="/images/hero.png" alt="" className="hero__img" />
+    </section>
   );
 };
 
