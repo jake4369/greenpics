@@ -1,19 +1,30 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const profile = {
   img: "/images/profile.jpeg",
   username: "Simone",
-  review: " oqwoj, woqaO, jjpossadlasdho jdjsa hdcias oed efhadshowednadsl, dsanjsd , aidjawwndlaksa jsa  udckajba icadsn asl jcadkm adkadcas",
+  review:
+    " oqwoj, woqaO, jjpossadlasdho jdjsa hdcias oed efhadshowednadsl, dsanjsd , aidjawwndlaksa jsa  udckajba icadsn asl jcadkm adkadcas",
 };
 
-const Review = () => {
+const Review = ({ review, user }) => {
+  console.log(review);
+  const { userInfo } = useSelector((state) => state.auth);
+  console.log(userInfo);
   return (
     <>
       <div className="review-container">
-      <img className="profile-image--review" src={profile.img} alt="" />
-        <h1 className="user">{profile.username}</h1>
-        
-        <p className="review">{profile.review}</p>
+        <img
+          className="profile-image--review"
+          src={userInfo.profileImage}
+          alt=""
+        />
+        <h1 className="user">{review.username}</h1>
+
+        <p className="review">{review.comment}</p>
+
+        <p>{review.createdAt.split("T")[0]}</p>
       </div>
     </>
   );
