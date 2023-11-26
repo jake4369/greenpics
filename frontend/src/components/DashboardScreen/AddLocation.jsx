@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAddLocationMutation } from "./../../slices/locationsSlice";
 
-import Map from "../Shared/Map";
+import GoogleMap from "./../../Components/Shared/GoogleMap";
 import Loader from "./../Shared/Loader";
 
 const AddLocation = () => {
@@ -13,8 +13,8 @@ const AddLocation = () => {
   const [disabledAccess, setDisabledAccess] = useState(false);
   const [food, setFood] = useState(false);
   const [toilets, setToilets] = useState(false);
-  const [lng, setLng] = useState(-4.7913);
-  const [lat, setLat] = useState(54.3222);
+  const [lng, setLng] = useState(-1.6642621);
+  const [lat, setLat] = useState(53.3958079);
 
   const [addLocation, { isLoading: isSubmitting, isError }] =
     useAddLocationMutation();
@@ -47,8 +47,8 @@ const AddLocation = () => {
       setDisabledAccess(false);
       setFood(false);
       setToilets(false);
-      setLng(-4.7913);
-      setLat(54.3222);
+      setLng(-1.6642621);
+      setLat(53.3958079);
     } catch (error) {
       console.error("Error adding location:", error);
     }
@@ -141,9 +141,16 @@ const AddLocation = () => {
             </li>
           </ul>
 
-          <div className="addlocation__map-container">
-            {/* <Map lng={lng} setLng={setLng} lat={lat} setLat={setLat} /> */}
-          </div>
+          {/* <div className="addlocation__map-container">
+            <GoogleMap
+              lng={lng}
+              setLng={setLng}
+              lat={lat}
+              setLat={setLat}
+              customZoom={6}
+            />
+            <small>Zoom in and click location to add map marker</small>
+          </div> */}
 
           <button className="submit-btn" disabled={isSubmitting}>
             Submit
