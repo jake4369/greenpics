@@ -1,13 +1,26 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {
   useAddFavouriteMutation,
   useRemoveFavouriteMutation,
 } from "./../../slices/locationsSlice";
+import { useGetUserByIdQuery } from "./../../slices/usersApiSlice";
 import { FaTrash } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 
 const Card = ({ location, refetch }) => {
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const {
+    data: user,
+    isLoading,
+    isError,
+    refetch: refetchUser,
+  } = useGetUserByIdQuery(userInfo._id);
+  const userFavourites = !isLoading ? user.favourites : [];
+
   const [addFavourite, { isLoading: savingFavourite, isError: errorSaving }] =
     useAddFavouriteMutation();
 
@@ -19,6 +32,8 @@ const Card = ({ location, refetch }) => {
   const handleAddFavourite = async (id) => {
     try {
       const result = await addFavourite(id);
+
+      refetchUser();
     } catch (error) {
       console.log(error);
     }
@@ -29,6 +44,7 @@ const Card = ({ location, refetch }) => {
       try {
         const result = await removeFavourite(id);
         refetch();
+        refetchUser();
       } catch (error) {
         console.log(error);
       }
@@ -43,26 +59,32 @@ const Card = ({ location, refetch }) => {
           <p className="location-card__name">{location.name}</p>
         </Link>
         <p className="location-card__county">{location.county}</p>
-        {pathname === "/dashboard/favourites" ? (
-          <button
-            className="location-card__btn remove-favourite-btn"
-            onClick={() => handleRemoveFavorite(location._id)}
-          >
-            <FaTrash /> Remove favourite
-          </button>
-        ) : (
-          <p className="location-card__reviews">
-            {location.reviews.length} Reviews
-          </p>
-        )}
-        {pathname === "/" && (
-          <button
-            className="location-card__btn add-favourite-btn"
-            onClick={() => handleAddFavourite(location._id)}
-          >
-            <CiHeart />
-          </button>
-        )}
+        <div className="location-card__flex-container">
+          {pathname === "/dashboard/favourites" ? (
+            <button
+              className="location-card__btn remove-favourite-btn"
+              onClick={() => handleRemoveFavorite(location._id)}
+            >
+              <FaTrash /> Remove favourite
+            </button>
+          ) : (
+            <p className="location-card__reviews">
+              {location.reviews.length} Reviews
+            </p>
+          )}
+          {pathname === "/" && (
+            <button
+              className="location-card__btn add-favourite-btn"
+              onClick={() => handleAddFavourite(location._id)}
+            >
+              {userFavourites.includes(location._id) ? (
+                <FaHeart />
+              ) : (
+                <CiHeart />
+              )}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -93,6 +93,12 @@ img {
   margin-bottom: 1rem;
 }
 
+.location-card__flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .location-card__btn {
   background: none;
   border: none;
@@ -107,6 +113,11 @@ img {
   font-size: 1.125rem;
   color: red;
   width: 10.3125rem;
+}
+
+.location-card__btn.add-favourite-btn {
+  font-size: 1.125rem;
+  color: red;
 }
 
 /* ===== MAP ===== */
