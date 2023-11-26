@@ -4,21 +4,17 @@ import Card from "./Card";
 const TopThree = () => {
   const { data: locations, isLoading, isError } = useGetLocationsQuery();
 
-
-
   const sortedLocations = !isLoading
-    ? locations.slice(0,3).sort((a, b) => b.numReviews - a.numReviews)
+    ? locations.slice(0, 3).sort((a, b) => b.numReviews - a.numReviews)
     : [];
-  
 
   return (
 
-    sortedLocations.map(location => (<Card key={location._id} location={location}/>))
-
-)}
-
-
-
-
-
+    <div>
+      {sortedLocations.map((location) => (
+        <Card key={location._id} location={location} />
+      ))}
+    </div>
+  );
+};
 export default TopThree;
