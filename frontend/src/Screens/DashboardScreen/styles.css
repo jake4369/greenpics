@@ -147,6 +147,19 @@
 }
 
 /* ========== 
+ FAVOURITES
+ ========== */
+.favourites-screen h1 {
+  margin-bottom: 1rem;
+}
+
+.favourites-screen__card-grid {
+  display: grid;
+  width: 100%;
+  gap: 4rem;
+}
+
+/* ========== 
  EDIT PROFILE
  ========== */
 .edit-profile h1 {
@@ -269,6 +282,20 @@
 
   .saved-location__btns {
     gap: 0.5rem;
+  }
+
+  /* ========== 
+  FAVOURITES
+  ========== */
+  .favourites-screen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .favourites-screen__card-grid {
+    display: grid;
+    width: 100%;
+    gap: 4rem;
   }
 
   /* ========== 
