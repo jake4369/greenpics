@@ -183,6 +183,16 @@ ul.review-form__checkboxes {
   color: darkgreen;
 }
 
+/* ==========
+ TOP THREE SECTION
+ ========== */
+
+.top-four {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
 /* ==============================
  MEDIA QUERIES
  ============================== */
@@ -215,8 +225,6 @@ ul.review-form__checkboxes {
   .reviews__section {
     margin: 0 auto 4rem;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 60% 40%);
   }
 
   .reviews-container {
@@ -257,7 +265,18 @@ ul.review-form__checkboxes {
     margin-bottom: 1.5rem;
   }
 
-  /* ===== REVIEW FORM ===== */
+  /* ==========
+  TOP FOUR SECTION
+  ========== */
+
+  .top-four {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .top-four .location-card {
+    width: 45%;
+  }
 }
 
 @media (min-width: 90rem) {
@@ -298,6 +317,10 @@ ul.review-form__checkboxes {
 
   .public-info__icon {
     margin-right: 1.5rem;
+  }
+
+  .reviews-container {
+    max-width: 50%;
   }
 }
 

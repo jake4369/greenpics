@@ -11,7 +11,7 @@ import ReviewForm from "../../Components/LocationScreen/ReviewForm";
 import Loader from "./../../Components/Shared/Loader";
 import GoogleMap from "./../../Components/Shared/GoogleMap";
 import Message from "../../Components/Shared/Message";
-import TopThree from "../../Components/Shared/TopThree";
+import TopFour from "../../Components/Shared/TopFour";
 
 const LocationScreen = () => {
   const { id: locationId } = useParams();
@@ -50,7 +50,7 @@ const LocationScreen = () => {
                 lng={location.lng}
                 lat={location.lat}
                 customZoom={12}
-      /> */}
+              /> */}
               <button onClick={openGoogleMaps} className="google-maps-btn">
                 Open Google Maps
               </button>
@@ -78,9 +78,10 @@ const LocationScreen = () => {
             <ReviewForm location={location} refetch={refetch} />
           </div>
 
-          <div >
-            <TopThree />
-          </div>
+          <section className="top-four-locations">
+            <h2>Locations you may like</h2>
+            <TopFour />
+          </section>
         </section>
       )}
     </div>
