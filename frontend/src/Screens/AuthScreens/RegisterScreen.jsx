@@ -56,55 +56,57 @@ const RegisterScreen = () => {
 
   return (
     <div className="screen authscreen">
-      <h1>Register</h1>
-
       <form onSubmit={handleSubmit}>
-        <label>name</label>
+        <h1>Sign Up</h1>
+        <small>
+          Already have an account? Log in <Link to="/login">here</Link>
+        </small>
+        <label>Name</label>
         <input
           type="text"
-          placeholder="name"
+          placeholder="John Doe"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
 
-        <label>username</label>
+        <label>Username</label>
         <input
           type="text"
-          placeholder="username"
+          placeholder="user123"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
 
-        <label>email</label>
+        <label>Email</label>
         <input
           type="email"
           required
-          placeholder="email"
+          placeholder="example@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label>password</label>
+        <label>Password</label>
         <input
           type="password"
           required
-          placeholder="password"
+          placeholder="Password123"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <label>confirm password</label>
+        <label>Confirm password</label>
         <input
           type="password"
           required
-          placeholder="confirm password"
+          placeholder="Confirm password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
 
-        <label>county</label>
+        <label>County</label>
         <input
           type="text"
           required
-          placeholder="county"
+          placeholder="e.g. West Midlands"
           value={county}
           onChange={(e) => setCounty(e.target.value)}
         />
@@ -113,6 +115,8 @@ const RegisterScreen = () => {
           {isLoading ? "Sending..." : "Submit"}
         </button>
       </form>
+
+      <img src="/images/register.jpeg" alt="" />
     </div>
   );
 };

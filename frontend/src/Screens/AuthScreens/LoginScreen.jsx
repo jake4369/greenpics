@@ -41,9 +41,8 @@ const LoginScreen = () => {
   };
   return (
     <div className="screen authscreen">
-      <h1>Login</h1>
-
       <form onSubmit={handleSubmit}>
+        <h1>Login</h1>
         <label>Email</label>
         <input
           type="email"
@@ -59,7 +58,13 @@ const LoginScreen = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button className="login-btn">Log In</button>
+
+        <small>
+          Don't have an account? Sign up <Link to="/register">here</Link>
+        </small>
       </form>
+
+      <img src="/images/login.jpeg" alt="" />
     </div>
   );
 };
