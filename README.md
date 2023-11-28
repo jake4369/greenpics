@@ -12,4 +12,4 @@ JWT_SECRET=my-super-secret-secret-jwt-secret
 
 To start the dev server, run 'npm run dev' in the root folder called 'greenpics'. This will run both the server and open up the application in localhost:3000 in your browser.
 
-All changes made after deadline are purely for deployment purposes as we really wanted to show project to our families.
+All changes made after deadline are purely for deployment purposes as we really wanted to show project to our families. Please only judge the project run locally.
