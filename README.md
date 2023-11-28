@@ -10,4 +10,4 @@ PORT = 8000
 MONGO_URI=mongodb+srv://jsamuelsdev:yMGjFYbSFSvl1YiW@cluster0.xbs7fey.mongodb.net/greenpics
 JWT_SECRET=my-super-secret-secret-jwt-secret
 
-To start the dev server, run 'npm run dev' in the root folder called 'greenpics'. This will run both the server and open up the application in localhost:3000
+To start the dev server, run 'npm run dev' in the root folder called 'greenpics'. This will run both the server and open up the application in localhost:3000 in your browser
