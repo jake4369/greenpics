@@ -5,6 +5,8 @@ import { useLogoutMutation } from "../../slices/usersApiSlice";
 import { logout } from "../../slices/authSlice";
 import { toast } from "react-toastify";
 
+import Nav from "./Nav";
+
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -25,32 +27,9 @@ const Header = () => {
   };
 
   return (
-    <>
-      <nav className="navBar-container">
-        <div className="link-container">
-          <Link to="/" className="nav-link">
-            Home
-          </Link>
-          <Link to="/dashboard/profile" className="nav-link">
-            Dashboard
-          </Link>
-          {!userInfo && (
-            <Link to="/register" className="nav-link">
-              Register
-            </Link>
-          )}
-          {userInfo ? (
-            <Link to="/" className="nav-link" onClick={handleLogout}>
-              Logout
-            </Link>
-          ) : (
-            <Link to="/login" className="nav-link">
-              Login
-            </Link>
-          )}
-        </div>
-      </nav>
-    </>
+    <header>
+      <Nav userInfo={userInfo} handleLogout={handleLogout} />
+    </header>
   );
 };
 export default Header;
