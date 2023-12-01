@@ -47,7 +47,7 @@ const ReviewForm = ({ location, refetch }) => {
         4: false,
         5: false,
       });
-      toast.success("Payment successful");
+      toast.success("Review added successfully");
     } catch (error) {
       toast.error(error?.data.message || error.message);
     }
