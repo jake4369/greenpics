@@ -166,13 +166,13 @@ const AddLocation = () => {
           </ul>
 
           <div className="addlocation__map-container">
-            <GoogleMap
+            {/*<GoogleMap
               lng={lng}
               setLng={setLng}
               lat={lat}
               setLat={setLat}
               customZoom={6}
-            />
+            />*/}
             <small>Zoom in and click location to add map marker</small>
           </div>
 
