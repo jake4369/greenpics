@@ -5,11 +5,13 @@ import { toast } from "react-toastify";
 import {
   useAddFavouriteMutation,
   useRemoveFavouriteMutation,
-} from "./../../slices/locationsSlice";
-import { useGetUserByIdQuery } from "./../../slices/usersApiSlice";
+} from "../../slices/locationsSlice";
+import { useGetUserByIdQuery } from "../../slices/usersApiSlice";
 import { FaTrash } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
+
+import Rating from "./Rating";
 
 const Card = ({ location, refetch }) => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -61,6 +63,7 @@ const Card = ({ location, refetch }) => {
           <p className="location-card__name">{location.name}</p>
         </Link>
         <p className="location-card__county">{location.county}</p>
+        <Rating value={location.rating} />
         <div className="location-card__flex-container">
           {pathname === "/dashboard/favourites" ? (
             <button

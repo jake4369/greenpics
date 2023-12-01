@@ -1,7 +1,7 @@
 import { useGetLocationsQuery } from "../../slices/locationsSlice";
 
 import Card from "../Shared/Card";
-import Loader from "./../Shared/Loader";
+import Loader from "../Shared/Loader";
 import Message from "../Shared/Message";
 
 const CardGrid = () => {

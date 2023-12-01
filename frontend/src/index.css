@@ -1,5 +1,5 @@
 /* ===== SRC/LAYOUT ===== */
-@import "./Components/Layout/styles.css";
+@import "./components/Layout/styles.css";
 
 /* ===== SRC/SCREENS =====  */
 @import "./Screens/HomeScreen/styles.css";
@@ -46,6 +46,7 @@ img {
 .screen {
   width: 87.2%;
   margin: 0 auto;
+  padding-top: 2rem;
 }
 
 /* ==========
@@ -119,6 +120,13 @@ img {
 .location-card__btn.add-favourite-btn {
   font-size: 1.125rem;
   color: red;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  color: #f8e825;
+  margin-bottom: 1rem;
 }
 
 /* ===== MAP ===== */

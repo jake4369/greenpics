@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Hero = () => {
+  const { userInfo } = useSelector((state) => state.auth);
   return (
     <section className="hero">
       <div className="hero__text-content">
@@ -14,9 +16,11 @@ const Hero = () => {
             let's celebrate the beauty of nature together.
           </p>
 
-          <Link to="/login" className="hero__sign-in-btn">
-            Sign In
-          </Link>
+          {!userInfo && (
+            <Link to="/login" className="hero__sign-in-btn">
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
       <img src="/images/hero.png" alt="" className="hero__img" />

@@ -36,65 +36,6 @@ const getLocationById = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Add a location
-// @route   POST /api/locations
-// @access  Private
-// const addLocation = asyncHandler(async (req, res) => {
-//   const {
-//     name,
-//     county,
-//     lng,
-//     lat,
-//     img,
-//     description,
-//     parking,
-//     disabledAccess,
-//     food,
-//     toilets,
-//     reviews, // Assuming this field contains reviews data
-//   } = req.body;
-
-//   const reviewObjects = reviews.map((review) => ({
-//     ...review,
-//     user: req.user._id, // Assuming you associate reviews with the logged-in user
-//     username: req.user.username,
-//   }));
-
-//   // Create reviews separately
-//   const createdReviews = await Review.create(reviewObjects);
-
-//   // Extract the IDs of the created reviews
-//   const reviewIds = createdReviews.map((review) => review._id);
-
-//   // Create the location and associate the reviews' IDs (ratings)
-//   const location = new Location({
-//     user: req.user._id,
-//     username: req.user.username,
-//     name,
-//     county,
-//     lng,
-//     lat,
-//     img,
-//     description,
-//     parking,
-//     disabledAccess,
-//     food,
-//     toilets,
-//     ratings: reviewIds, // Associate the reviews' IDs with the location's ratings
-//   });
-
-//   const createdLocation = await location.save();
-
-//   // Add to created locations array
-//   await User.findByIdAndUpdate(
-//     req.user._id,
-//     { $push: { createdLocations: createdLocation._id } },
-//     { new: true }
-//   );
-
-//   res.status(201).json(createdLocation);
-// });
-
 const addLocation = asyncHandler(async (req, res) => {
   const {
     name,
@@ -311,13 +252,13 @@ const deleteLocationReview = asyncHandler(async (req, res) => {
 
     if (!review) {
       res.status(404);
-      throw new Error('Review not found');
+      throw new Error("Review not found");
     }
 
     // Check if the user is authorized to delete the review
     if (review.user.toString() !== req.user._id.toString()) {
       res.status(401);
-      throw new Error('Not authorized to delete this review');
+      throw new Error("Not authorized to delete this review");
     }
 
     // Remove the review from the array
@@ -336,13 +277,12 @@ const deleteLocationReview = asyncHandler(async (req, res) => {
     }
 
     await location.save();
-    res.json({ message: 'Review deleted' });
+    res.json({ message: "Review deleted" });
   } else {
     res.status(404);
-    throw new Error('Location not found');
+    throw new Error("Location not found");
   }
 });
-
 
 export {
   getLocations,

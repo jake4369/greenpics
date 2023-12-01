@@ -3,10 +3,10 @@ import { toast } from "react-toastify";
 import {
   useAddLocationMutation,
   useUploadLocationImageMutation,
-} from "./../../slices/locationsSlice";
+} from "../../slices/locationsSlice";
 
-import GoogleMap from "./../../Components/Shared/GoogleMap";
-import Loader from "./../Shared/Loader";
+import GoogleMap from "../Shared/GoogleMap";
+import Loader from "../Shared/Loader";
 import Message from "../Shared/Message";
 
 const AddLocation = () => {
@@ -165,16 +165,16 @@ const AddLocation = () => {
             </li>
           </ul>
 
-          {/* <div className="addlocation__map-container">
-            <GoogleMap
+          <div className="addlocation__map-container">
+            {/*<GoogleMap
               lng={lng}
               setLng={setLng}
               lat={lat}
               setLat={setLat}
               customZoom={6}
-            />
+            />*/}
             <small>Zoom in and click location to add map marker</small>
-          </div> */}
+          </div>
 
           <button className="submit-btn" disabled={isSubmitting}>
             Submit

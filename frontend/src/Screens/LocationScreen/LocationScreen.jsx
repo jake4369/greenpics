@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 import { FaArrowLeft } from "react-icons/fa";
 
-import LocationDetails from "../../Components/LocationScreen/LocationDetails";
-import PublicInfo from "../../Components/LocationScreen/PublicInfo";
-import Review from "../../Components/LocationScreen/Review";
-import ReviewForm from "../../Components/LocationScreen/ReviewForm";
-import Loader from "./../../Components/Shared/Loader";
-import GoogleMap from "./../../Components/Shared/GoogleMap";
-import Message from "../../Components/Shared/Message";
-import TopFour from "../../Components/Shared/TopFour";
+import LocationDetails from "../../components/LocationScreen/LocationDetails";
+import PublicInfo from "../../components/LocationScreen/PublicInfo";
+import Review from "../../components/LocationScreen/Review";
+import ReviewForm from "../../components/LocationScreen/ReviewForm";
+import Loader from "../../components/Shared/Loader";
+import GoogleMap from "../../components/Shared/GoogleMap";
+import Message from "../../components/Shared/Message";
+import TopFour from "../../components/Shared/TopFour";
 
 const LocationScreen = () => {
   const { id: locationId } = useParams();

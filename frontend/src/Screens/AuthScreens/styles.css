@@ -31,6 +31,21 @@
   text-decoration: none;
 }
 
+.authscreen form button {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  background: darkgreen;
+  border: none;
+  border-radius: 0.3125rem;
+  margin-bottom: 2rem;
+}
+
 @media (min-width: 48rem) {
   .authscreen {
     display: grid;
@@ -53,20 +68,5 @@
 
   .authscreen form input {
     padding: 1rem;
-  }
-
-  .authscreen form button {
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 1rem 3rem;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #fff;
-    background: darkgreen;
-    border: none;
-    border-radius: 0.3125rem;
-    margin-bottom: 2rem;
   }
 }

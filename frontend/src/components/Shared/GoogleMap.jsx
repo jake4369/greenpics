@@ -30,7 +30,7 @@ const MapComponent = ({ lat, setLat, lng, setLng, customZoom }) => {
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyCOxbvzw57YxZF5w4tT7Ebar9PkYuqMSf8",
+    googleMapsApiKey: "",
     libraries: libraries, // Use the libraries constant here
   });
 

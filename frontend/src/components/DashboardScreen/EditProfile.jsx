@@ -5,9 +5,9 @@ import { toast } from "react-toastify";
 import {
   useGetUserByIdQuery,
   useUpdateUserProfileMutation,
-} from "./../../slices/usersApiSlice";
+} from "../../slices/usersApiSlice";
 
-import Loader from "./../Shared/Loader";
+import Loader from "../Shared/Loader";
 import Message from "../Shared/Message";
 
 const EditProfile = () => {
